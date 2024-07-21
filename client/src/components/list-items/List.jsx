@@ -1,23 +1,31 @@
 import styles from './List.module.css'
 
-export default function List(){
-    return(
+export default function List() {
+    return (
         <main className={styles.main}>
-            
+
             <div className={styles["form-container"]}>
                 <h1 className={styles.header}>List your Car Part</h1>
                 <form id="create-item-form">
                     <div className={styles['form-group']}>
-                        <label htmlFor="title">Title</label>
+                        <label htmlFor="title">Part Type</label>
                         <input type="text" id="title" name="title" required></input>
+                    </div>
+                    <div className={styles['form-group']}>
+                        <label htmlFor="car-brand">Car Brand</label>
+                        <input type="text" id="car-brand" name="car-brand" required></input>
                     </div>
                     <div className={styles['form-group']}>
                         <label htmlFor="year">Year</label>
                         <input type="number" id="year" name="year" required></input>
                     </div>
                     <div className={styles['form-group']}>
-                        <label htmlFor="car-brand">Car Brand</label>
+                        <label htmlFor="car-brand">Car Model</label>
                         <input type="text" id="car-brand" name="car-brand" required></input>
+                    </div>
+                    <div className={styles['form-group']}>
+                        <label htmlFor="car-brand">Engine Capacity</label>
+                        <input type="number" id="car-brand" name="car-brand" required></input>
                     </div>
                     <div className={styles['form-group']}>
                         <label htmlFor="price">Price</label>
