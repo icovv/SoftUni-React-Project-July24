@@ -1,0 +1,46 @@
+body {
+    background-image:   url("/images/nackground.jpg");
+    background-size: cover;
+    color: #fff;
+  }
+
+.home-text {
+    margin-top: 5%;
+    cursor: default;
+  }
+  
+  .home-text h1 {
+    font-size: 88px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: white;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  
+  .home-text p {
+    line-height: 22px;
+    font-size: 14px;
+    text-align: center;
+    margin-left: 300px;
+    margin-right: 300px;
+  }
+  
+  .catalog-btn {
+    display: inline-block;
+    text-align: center;
+    font-size: 30px;
+    height: 30px;
+    width: 150px;
+    margin-top: 30px;
+    margin-left: 45%;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    color: black;
+    font-weight: bold;
+    background-color: #857776;
+  }
+  .catalog-btn:hover{
+    color: #FFFDFC;
+  }
