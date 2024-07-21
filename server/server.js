@@ -1339,42 +1339,45 @@
     	}
     };
     var seedData = {
-        parts: {
+        cars: {
             "1":{
             _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-            type: "Engine",
             year: "2010",
             carBrand: "Toyota",
             carModel: "Camry",
             engineCapacity: "1600",
-            price: "20",
-            description: "This is a very powerfull engine that can last you forever",
+            fuelType: "Diesel",
+            horsePower: "100",
+            color: "Grey",
+            description: "The most reliable car.",
             likes:["847ec027-f659-4086-8032-5173e2f9c93a"],
-            imageURL: "https://cdn.reman-engine.com/images/atk869b-1.jpg"
+            imageURL: "https://cars.usnews.com/pics/size/390x290/images/Auto/izmo/309572/2010_toyota_camry_angularfront.jpg"
         },
             "2":{
             _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-            type: "Brake Pads",
             year: "2010",
             carBrand: "BMW",
             carModel: "Series 3",
             engineCapacity: "2200",
-            price: "202",
-            description: "Brakes that can last you forever",
+            fuelType: "Diesel",
+            horsePower: "200",
+            color: "Grey",
+            description: "Astonishingly fast",
             likes:[],
-            imageURL: "https://cdn.autodoc.de/thumb?id=21531458&m=0&n=0&lng=en&rev=94077836"
+            imageURL: "https://images.hgmsites.net/hug/2010-bmw-3-series-4-door-sedan-328i-rwd-angular-front-exterior-view_100237108_h.jpg"
         },
             "3":{
             _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-            type: "Transmission",
             year: "2001",
             carBrand: "Mercedes",
             carModel: "C class",
             engineCapacity: "2200",
-            price: "30",
-            description: "No one can stop you with this transmission",
+            fuelType: "Petrol",
+            horsePower: "150",
+            color: "Beige",
+            description: "Old but still amazing",
             likes:["35c62d76-8152-4626-8712-eeb96381bea8"],
-            imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZZkUYYzGhCtjLiBoN8CdDb9BUqFOBEBOo8w&s"
+            imageURL: "https://platform.cstatic-images.com/xlarge/in/v2/stock_photos/58730ff6-db22-4b09-a27f-66a649aa05e6/409b2dfa-6f1c-44b3-83d4-9145524cf651.png"
         }
         },
     	recipes: {

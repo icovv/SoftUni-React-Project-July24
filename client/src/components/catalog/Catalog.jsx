@@ -1,25 +1,25 @@
 import { useEffect, useState } from 'react'
 import styles from './Catalog.module.css'
-import { getAllParts } from '../../api/partsService';
+import { getAllCars } from '../../api/carsService';
 import CatalogItem from './catalog-single-item/CatalogItem';
 
 export default function Catalog(){
-    let [parts,setParts] = useState([]);
+    let [cars,setCars] = useState([]);
     useEffect(() => {
-        async function getParts(){
-            let parts = await getAllParts();
-            console.log(parts)
-            setParts(parts);
+        async function getCars(){
+            let data = await getAllCars();
+            console.log(data)
+            setCars(data);
         }
-        getParts();
+        getCars();
     },[]);
 
     return(
         <main>
-        <h1 className={styles.header}>All listed car parts</h1>
-        {parts.length > 0 
+        <h1 className={styles.header}>All listed cars</h1>
+        {cars.length > 0 
         ?
-        parts.map(item => <CatalogItem key={item._id} part={item} ></CatalogItem>)
+        cars.map(car => <CatalogItem key={car._id} car={car} ></CatalogItem>)
         :
         <h2>There are no listed items</h2>
         }

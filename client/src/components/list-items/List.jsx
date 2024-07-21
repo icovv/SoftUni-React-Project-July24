@@ -5,35 +5,39 @@ export default function List() {
         <main className={styles.main}>
 
             <div className={styles["form-container"]}>
-                <h1 className={styles.header}>List your Car Part</h1>
+                <h1 className={styles.header}>List your Car</h1>
                 <form id="create-item-form">
                     <div className={styles['form-group']}>
-                        <label htmlFor="title">Part Type</label>
-                        <input type="text" id="title" name="title" required></input>
-                    </div>
-                    <div className={styles['form-group']}>
                         <label htmlFor="car-brand">Car Brand</label>
-                        <input type="text" id="car-brand" name="car-brand" required></input>
+                        <input type="text" id="brand" name="brand" required></input>
                     </div>
                     <div className={styles['form-group']}>
                         <label htmlFor="year">Year</label>
                         <input type="number" id="year" name="year" required></input>
                     </div>
                     <div className={styles['form-group']}>
-                        <label htmlFor="car-brand">Car Model</label>
-                        <input type="text" id="car-brand" name="car-brand" required></input>
+                        <label htmlFor="car-model">Car Model</label>
+                        <input type="text" id="model" name="model" required></input>
                     </div>
                     <div className={styles['form-group']}>
-                        <label htmlFor="car-brand">Engine Capacity</label>
-                        <input type="number" id="car-brand" name="car-brand" required></input>
+                        <label htmlFor="engine-capacity">Engine Capacity</label>
+                        <input type="number" id="capacity" name="capacity" required></input>
                     </div>
                     <div className={styles['form-group']}>
-                        <label htmlFor="price">Price</label>
-                        <input type="number" id="price" name="price" required></input>
+                        <label htmlFor="car-power">Horse Power</label>
+                        <input type="number" id="power" name="power" required></input>
+                    </div>
+                    <div className={styles['form-group']}>
+                        <label htmlFor="fuel-type">Fuel Type</label>
+                        <input type="text" id="fuel" name="fuel" required></input>
+                    </div>
+                    <div className={styles['form-group']}>
+                        <label htmlFor="color">Color</label>
+                        <input type="text" id="color" name="color" required></input>
                     </div>
                     <div className={styles['form-group']}>
                         <label htmlFor="image-link">Image URL</label>
-                        <input type="url" id="image-link" name="image-link" required></input>
+                        <input type="url" id="image" name="image" required></input>
                     </div>
                     <div className={styles['form-group']}>
                         <label htmlFor="description">Description</label>

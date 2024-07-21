@@ -10,7 +10,7 @@ export default function Home() {
     return (
         <main>
         <div className= {styles['home-text']}>
-            <h1>Showcase your car parts</h1>
+            <h1>Show us your car</h1>
             <a href="/catalog" className={styles['catalog-btn-home']}>Catalog</a>
         </div>
         </main>
