@@ -7,6 +7,8 @@ import Catalog from './components/catalog/Catalog'
 import List from './components/list-items/List'
 import Search from './components/search/Search'
 import Profile from './components/profile/Profile'
+import Register from './components/register/Register'
+import Login from './components/login/Login'
 function App() {
 
   return (
@@ -19,8 +21,8 @@ function App() {
         <Route path='/listItem' element={<List></List>}></Route>
         <Route path='/search' element={<Search></Search>}></Route>
         <Route path='/profile' element={<Profile></Profile>}></Route>
-        <Route path='/register' element={<Home></Home>}></Route>
-        <Route path='/login' element={<Home></Home>}></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/logout' element={<Home></Home>}></Route>
       </Routes>
 
