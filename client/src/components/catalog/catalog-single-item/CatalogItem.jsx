@@ -11,7 +11,7 @@ export default function CatalogItem(
         <h1 style={{color:"black"}}>{part.type}</h1>
         <h3 style={{color:"black"}}>Car Brand: {part.carBrand}</h3>
         <p className={styles.price}>${part.price}</p>
-        <a href={`/details/${part._id}`}><button className={styles.button}>Details</button></a>
+        <a href={`/catalog/details/${part._id}`}><button className={styles.button}>Details</button></a>
       </div>
     )
 }

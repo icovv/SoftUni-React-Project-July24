@@ -8,7 +8,7 @@ export default function Header(){
          <ul className={styles.Menu}>
           <li><a href="/">Home</a></li>
           <li><a href="/catalog">Catalog</a></li>
-          <li><a href="/listItem">Sell new Item</a></li>
+          <li><a href="/listItem">List new Item</a></li>
           <li><a href="/search">Search</a></li>
           <li><a href="/profile">Profile</a></li>
           <li><a href="/register">Register</a></li>

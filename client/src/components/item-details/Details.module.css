@@ -10,7 +10,7 @@
     flex-wrap: wrap;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.699);
-    margin: 80px auto;
+    margin: 70px auto;
     min-height: 400px;
     max-width: 60%;
     padding: 20px;
@@ -20,7 +20,7 @@
 
 .image-container {
     margin: auto;
-    width: 30%;
+    width: 40%;
     overflow: hidden;
 }
 
