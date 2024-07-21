@@ -1339,6 +1339,35 @@
     	}
     };
     var seedData = {
+        parts: {
+            "1":{
+            _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+            type: "Engine",
+            year: "2010",
+            carBrand: "Toyota",
+            price: "20",
+            description: "This is a very powerfull engine that can last you forever",
+            likes:["847ec027-f659-4086-8032-5173e2f9c93a"],
+        },
+            "2":{
+            _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+            type: "Brake Pads",
+            year: "2010",
+            carBrand: "BMW",
+            price: "202",
+            description: "Brakes that can last you forever",
+            likes:[],
+        },
+            "3":{
+            _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+            type: "Transmission",
+            year: "2001",
+            carBrand: "Mercedes",
+            price: "30",
+            description: "No one can stop you with this transmission",
+            likes:["35c62d76-8152-4626-8712-eeb96381bea8"],
+        }
+        },
     	recipes: {
     		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
