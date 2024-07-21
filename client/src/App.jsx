@@ -10,6 +10,7 @@ import Profile from './components/profile/Profile'
 import Register from './components/register/Register'
 import Login from './components/login/Login'
 import Details from './components/item-details/Details'
+import Edit from './components/edit-item/Edit'
 function App() {
 
   return (
@@ -21,6 +22,7 @@ function App() {
 
         <Route path='/catalog' element={<Catalog></Catalog>}></Route>
         <Route path='/catalog/details' element={<Details></Details>}></Route>
+        <Route path='/catalog/edit' element={<Edit></Edit>}></Route>
         
         <Route path='/listItem' element={<List></List>}></Route>
         <Route path='/search' element={<Search></Search>}></Route>
