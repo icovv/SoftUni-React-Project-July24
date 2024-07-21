@@ -1,11 +1,10 @@
 body {
-    background-image:   url("/images/nackground.jpg");
     background-size: cover;
     color: #fff;
   }
 
 .home-text {
-    margin-top: 5%;
+    margin-top: 10%;
     cursor: default;
   }
   
@@ -32,8 +31,8 @@ body {
     font-size: 30px;
     height: 30px;
     width: 150px;
-    margin-top: 30px;
-    margin-left: 45%;
+    margin-top: 150px;
+    margin-left: 43%;
     text-decoration: none;
     padding: 15px 30px;
     border-radius: 30px;

@@ -4,10 +4,10 @@ export default function Header(){
     return(
         <header>
         <div className={styles.Header}>
-           <img src="/images/10150.png" href="" className={styles.logo}></img> 
+           <img src="/images/10150.png" href="/" className={styles.logo}></img> 
          <ul className={styles.Menu}>
-          <li><a href="">Home</a></li>
-          <li><a href="">Catalog</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/catalog">Catalog</a></li>
           <li><a href="">Sell new Item</a></li>
           <li><a href="">Search</a></li>
           <li><a href="">Profile</a></li>
