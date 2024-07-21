@@ -1,5 +1,5 @@
 import styles from './Home.module.css'
-import background from '../../../public/images/nackground.jpg'
+import background from '/images/nackground.jpg'
 import { useEffect } from 'react'
 
 
@@ -10,7 +10,7 @@ export default function Home() {
     return (
         <main>
         <div className= {styles['home-text']}>
-            <h1>Best Car Parts Store</h1>
+            <h1>Showcase your car parts</h1>
             <a href="/catalog" className={styles['catalog-btn']}>Catalog</a>
         </div>
         </main>

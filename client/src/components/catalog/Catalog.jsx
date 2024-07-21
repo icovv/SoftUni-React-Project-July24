@@ -3,7 +3,7 @@ import styles from './Catalog.module.css'
 export default function Catalog(){
     return(
         <main>
-        <h1 className={styles.header}>All car parts on the market</h1>
+        <h1 className={styles.header}>All listed car parts</h1>
         <div className={styles.card}>
             <img src="./images/10150.png" alt="Car Part" style={{width:"100%"}}></img>
             <h1 style={{color:"black"}}>Tailored Jeans</h1>
