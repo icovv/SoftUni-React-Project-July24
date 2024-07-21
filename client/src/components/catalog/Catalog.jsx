@@ -19,7 +19,7 @@ export default function Catalog(){
         <h1 className={styles.header}>All listed car parts</h1>
         {parts.length > 0 
         ?
-        parts.map(item => <CatalogItem key={item._id} ></CatalogItem>)
+        parts.map(item => <CatalogItem key={item._id} part={item} ></CatalogItem>)
         :
         <h2>There are no listed items</h2>
         }
