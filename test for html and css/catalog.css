@@ -1,0 +1,113 @@
+@font-face { font-family: Kudryashev; src: url('KudryashevDisplay-Sans.ttf'); }
+@font-face { font-family: Cormorant; src: url('CormorantGaramond-Bold.ttf'); }
+@font-face { font-family: Youngest; src: url('The Youngest Script.ttf'); }
+@font-face { font-family: Laguna; src: url('fonts/LagunaC Regular.otf'); }
+
+body
+{ background-color: #dfd4c8;
+  font: 12px/1.2 Verdana, Arial, Helvetica, sans-serif;
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
+header
+{ background-color: #857776; }
+
+header .Header
+{ width:1500px;
+  margin:0px auto;
+}
+
+
+header .Menu
+{ font:15px Century Gothic;
+  float:right;
+  list-style-type: none;
+}
+
+
+header .Menu li
+{ float: left; margin-top: 12px;}
+
+header .Menu li a
+{ padding:0 10px;
+  text-decoration: none;
+  color: #FFFDFC;
+ }
+
+.logo {
+    width: 60px;
+    cursor: pointer;
+    align-items: left;
+  }
+  
+
+header .Menu li:hover a
+{ color: #DFD4C8; }
+
+
+/*******************************************************************/
+.header{
+    text-align: center;
+    font-size: 50px;
+}
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    background-color: white;
+    float:left;
+    margin-top: 30px;
+    margin-left: 90px;
+
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }
+
+/********************************************************************************/
+footer
+{ background-color: #857776;
+  /*height: 150px;*/
+  width:100%;
+  position: fixed;
+  bottom: 0;
+  padding:5px 0;
+}
+
+footer .Logo
+{ width: 100%;
+  font:20px/1.2 Kudryashev;
+  color: #FFFDFC;
+  text-align:center;
+  margin-top:0 px;
+  float: left;
+  
+}
+.clear { clear: both; }
+
+
+/*****************************************************************/

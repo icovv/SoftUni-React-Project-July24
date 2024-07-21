@@ -1,0 +1,157 @@
+@font-face { font-family: Kudryashev; src: url('KudryashevDisplay-Sans.ttf'); }
+@font-face { font-family: Cormorant; src: url('CormorantGaramond-Bold.ttf'); }
+@font-face { font-family: Youngest; src: url('The Youngest Script.ttf'); }
+@font-face { font-family: Laguna; src: url('fonts/LagunaC Regular.otf'); }
+
+body
+{ background-color: #dfd4c8;
+  font: 12px/1.2 Verdana, Arial, Helvetica, sans-serif;
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
+header
+{ background-color: #857776; }
+
+header .Header
+{ width:1500px;
+  margin:0px auto;
+}
+
+
+header .Menu
+{ font:15px Century Gothic;
+  float:right;
+  list-style-type: none;
+}
+
+
+header .Menu li
+{ float: left; margin-top: 8px;}
+
+header .Menu li a
+{ padding:0 10px;
+  text-decoration: none;
+  color: #FFFDFC;
+ }
+
+.logo {
+    width: 60px;
+    cursor: pointer;
+    align-items: left;
+  }
+  
+
+
+/*******************************************************************/
+.register-form {
+    color: white;
+    width: 360px;
+    height: 380px;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #dbd1c1;
+    border: 2px solid black;
+    color: black;
+}
+
+.register-form h1 {
+    text-align: center;
+}
+
+
+.register-form h4 {
+    text-align: center;
+}
+
+.register-form form {
+    width: 300px;
+    margin-left: 15px;
+}
+
+.register-form form label {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.register-form form input {
+    width: 320px;
+    height: 30px;
+    padding-left: 7px;
+    border: none;
+    border: 1px solid gray;
+    border-radius: 8px;
+}
+
+.register-form input[type="submit"] {
+    width: 320px;
+    height: 35px;
+    margin-top: 30px;
+    background-color: #857776;
+    margin-left: 5px;
+    color: white;
+    font-size: 15px;
+}
+
+input[type="submit"]:hover{
+  cursor: pointer;
+}
+
+.register-form p {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 15px;
+
+}
+
+.no-acc {
+  color: black;
+  font-size: 15px;
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.anchr{
+  text-align: right;
+  font-size: 15px;
+  margin-left: 5px;
+  color: #857776;
+}
+
+.no-acc-box {
+  color: white;
+  width: 330px;
+  height: 50px;
+  margin: auto;
+  margin-top: 20px;
+  background-color: #dbd1c1;
+  border: 2px solid black;
+  color: black;
+}
+/********************************************************************************/
+footer
+{ background-color: #857776;
+  /*height: 150px;*/
+  width:100%;
+  position: fixed;
+  bottom: 0;
+  padding:5px 0;
+}
+
+footer .Logo
+{ width: 100%;
+  font:20px/1.2 Kudryashev;
+  color: #FFFDFC;
+  text-align:center;
+  margin-top:0 px;
+  float: left;
+  
+}
+.clear { clear: both; }
+
+
+/*****************************************************************/

@@ -1,0 +1,121 @@
+@font-face { font-family: Kudryashev; src: url('KudryashevDisplay-Sans.ttf'); }
+@font-face { font-family: Cormorant; src: url('CormorantGaramond-Bold.ttf'); }
+@font-face { font-family: Youngest; src: url('The Youngest Script.ttf'); }
+@font-face { font-family: Laguna; src: url('fonts/LagunaC Regular.otf'); }
+
+body
+{ background-color: #dfd4c8;
+  font: 12px/1.2 Verdana, Arial, Helvetica, sans-serif;
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
+header
+{ background-color: #857776; }
+
+header .Header
+{ width:1500px;
+  margin:0px auto;
+}
+
+
+header .Menu
+{ font:15px Century Gothic;
+  float:right;
+  list-style-type: none;
+}
+
+
+header .Menu li
+{ float: left; margin-top: 12px;}
+
+header .Menu li a
+{ padding:0 10px;
+  text-decoration: none;
+  color: #FFFDFC;
+ }
+
+.logo {
+    width: 60px;
+    cursor: pointer;
+    align-items: left;
+  }
+  
+
+header .Menu li:hover a
+{ color: #DFD4C8; }
+
+
+/*******************************************************************/
+
+body {
+    background-image:   url("/images/nackground.jpg");
+    background-size: cover;
+    color: #fff;
+  }
+
+.home-text {
+    margin-top: 5%;
+    cursor: default;
+  }
+  
+  .home-text h1 {
+    font-size: 88px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: white;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  
+  .home-text p {
+    line-height: 22px;
+    font-size: 14px;
+    text-align: center;
+    margin-left: 300px;
+    margin-right: 300px;
+  }
+  
+  .catalog-btn {
+    display: inline-block;
+    text-align: center;
+    font-size: 30px;
+    height: 30px;
+    width: 150px;
+    margin-top: 30px;
+    margin-left: 45%;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    color: black;
+    font-weight: bold;
+    background-color: #857776;
+  }
+  .catalog-btn:hover{
+    color: #FFFDFC;
+  }
+
+/********************************************************************************/
+footer
+{ background-color: #857776;
+  /*height: 150px;*/
+  width:100%;
+  position: fixed;
+  bottom: 0;
+  padding:5px 0;
+}
+
+footer .Logo
+{ width: 100%;
+  font:20px/1.2 Kudryashev;
+  color: #FFFDFC;
+  text-align:center;
+  margin-top:0 px;
+  float: left;
+  
+}
+.clear { clear: both; }
+
+
+/*****************************************************************/
