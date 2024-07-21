@@ -25,12 +25,12 @@ body {
     margin-right: 300px;
   }
   
-  .catalog-btn {
+  .catalog-btn-home {
     display: inline-block;
     text-align: center;
     font-size: 30px;
-    height: 30px;
-    width: 150px;
+    /* height: 30px;
+    width: 150px; */
     margin-top: 150px;
     margin-left: 43%;
     text-decoration: none;
@@ -40,6 +40,6 @@ body {
     font-weight: bold;
     background-color: #857776;
   }
-  .catalog-btn:hover{
+  .catalog-btn-home:hover{
     color: #FFFDFC;
   }

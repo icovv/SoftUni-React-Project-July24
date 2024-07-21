@@ -11,7 +11,7 @@ export default function Home() {
         <main>
         <div className= {styles['home-text']}>
             <h1>Showcase your car parts</h1>
-            <a href="/catalog" className={styles['catalog-btn']}>Catalog</a>
+            <a href="/catalog" className={styles['catalog-btn-home']}>Catalog</a>
         </div>
         </main>
     )
