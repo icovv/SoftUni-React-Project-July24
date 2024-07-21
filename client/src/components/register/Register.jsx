@@ -1,17 +1,24 @@
+import useForm from '../../hooks/useForm'
 import styles from './Register.module.css'
 
 export default function Register(){
+    let {value, changeHandler,submitHandler} = useForm("register", {
+        email:'',
+        password:'',
+        repass:''
+    });
+
     return(
         <main>
             <div className={styles["register-form"]}>
                 <h1 >Registration Form</h1>
-                <form className= {styles["register-form-form"]}action="#" method="">
+                <form className= {styles["register-form-form"]} onSubmit={submitHandler}>
                     <label className={styles["register-form-label"]}>Email</label>
-                    <input className={styles["register-form-input"]} type="text" name="" ></input>
+                    <input className={styles["register-form-input"]} type="text" name="email" value={value.email || ``}  onChange={changeHandler} ></input>
                     <label className={styles["register-form-label"]}>Password</label>
-                    <input className={styles["register-form-input"]} type="password" name="" ></input>
+                    <input className={styles["register-form-input"]} type="password" name="password" value={value.password || ``} onChange={changeHandler} ></input>
                     <label className={styles["register-form-label"]}>Repeat Password</label>
-                    <input className={styles["register-form-input"]} type="password" name="" ></input>
+                    <input className={styles["register-form-input"]} type="repass" name="repass" value={value.repass || ``} onChange={changeHandler} ></input>
                     <input className={styles["register-form-input"]} type="submit" value="Submit"></input>
                 </form>
             </div>
