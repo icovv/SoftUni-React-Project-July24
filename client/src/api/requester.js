@@ -10,9 +10,9 @@ export async function requester(method,url,data){
 
     // let user = getUserData();
     
-    // if (user){
-    //     options.headers["X-Authorization"] = user.accessToken;
-    // }
+    if (user){
+        options.headers["X-Authorization"] = user.accessToken;
+    }
 
     try {
         let response = await fetch(url,options);
