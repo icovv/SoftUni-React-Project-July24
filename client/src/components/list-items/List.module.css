@@ -36,8 +36,14 @@ label {
     display: block;
     color: black;
 }
+.label {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    display: block;
+    color: black;
+}
 
-input, textarea {
+input, textarea, select {
     width: 100%;
     padding: 0.75em;
     border: 1px solid #ddd;

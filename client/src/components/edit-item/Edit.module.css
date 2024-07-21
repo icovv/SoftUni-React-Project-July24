@@ -6,8 +6,8 @@
 }
 
 .header{
-    text-align: center;
     color: black;
+    text-align: center;
 }
 
 .form-container {
@@ -21,7 +21,7 @@
     width: 70%;
 }
 
-.form {
+form {
     display: flex;
     flex-direction: column;
 }
@@ -30,6 +30,12 @@
     margin-bottom: 1em;
 }
 
+label {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    display: block;
+    color: black;
+}
 .label {
     font-size: 1.1em;
     margin-bottom: 0.5em;
@@ -37,24 +43,18 @@
     color: black;
 }
 
-.input{
+input, textarea, select {
     width: 100%;
     padding: 0.75em;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1em;
     box-sizing: border-box;
-}
-.textarea {
-    width: 100%;
-    padding: 0.75em;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1em;
-    box-sizing: border-box;
-    resize: vertical;
 }
 
+textarea {
+    resize: vertical;
+}
 
 .button {
     padding: 0.75em 1.5em;

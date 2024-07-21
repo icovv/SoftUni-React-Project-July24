@@ -7,14 +7,14 @@ export default function Login(){
             <h1>Login Form</h1>
             <form className={styles["form"]} action="#" method="">
                 <label className={styles["label"]}>Email</label>
-                <input className={styles["input"]} type="text" name=""></input>
+                <input className={styles["input"]} type="text" name="email"></input>
                 <label className={styles["label"]}>Password</label>
-                <input className={styles["input"]} type="password" name=""></input>
+                <input className={styles["input"]} type="password" name="password"></input>
                 <input className={styles["input"]} type="submit" value="Submit"></input>
             </form>
         </div>
         <div className={styles["no-acc-box"]}>
-            <h1 className={styles["no-acc"]}>New to our store?<a href="/register.html" className={styles["anchr"]}>Register here</a> </h1>
+            <h1 className={styles["no-acc"]}>New to our store?<a href="/register" className={styles["anchr"]}>Register here</a> </h1>
         </div>
     </main>
     )

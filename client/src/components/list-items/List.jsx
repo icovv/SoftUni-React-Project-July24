@@ -27,9 +27,12 @@ export default function List() {
                         <label htmlFor="car-power">Horse Power</label>
                         <input type="number" id="power" name="power" required></input>
                     </div>
-                    <div className={styles['form-group']}>
-                        <label htmlFor="fuel-type">Fuel Type</label>
-                        <input type="text" id="fuel" name="fuel" required></input>
+                    <div >
+                        <label htmlFor="fuel-type" >Fuel Type</label>
+                        <select style={{marginBottom: "15px"}} id="fuel-type" name="fuel-type" required>
+                        <option value="petrol">Petrol</option>
+                        <option value="diesel">Diesel</option>
+                        </select>
                     </div>
                     <div className={styles['form-group']}>
                         <label htmlFor="color">Color</label>

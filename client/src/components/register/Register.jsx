@@ -16,7 +16,7 @@ export default function Register(){
                 </form>
             </div>
             <div className={styles["no-acc-box"]}>
-                <h1 className={styles["no-acc"]}>Already have an account?<a href="/login.html" className={styles["anchr"]}>Login here</a></h1>
+                <h1 className={styles["no-acc"]}>Already have an account?<a href="/login" className={styles["anchr"]}>Login here</a></h1>
             </div>
         </main>
     )

@@ -18,33 +18,32 @@ export default function Profile(){
             <section className={styles["product-section"]}>
                 <h2>Listed Products</h2>
                 <div className={styles["product"]}>
-                    <h3 className={styles['h3']}>Product Name</h3>
-                    <p className={styles['p']}><strong>Price:</strong> $100</p>
-                    <p className={styles['p']}><strong>Title:</strong> Brand A</p>
+                    <h3 className={styles['h3']}>Mercedes</h3>
+                    <p className={styles['p']}><strong>Model:</strong> C220</p>
+                    <p className={styles['p']}><strong>Color:</strong> Grey</p>
                     <button className={styles["details-btn"]}>Details</button>
                 </div>
                 <div className={styles["product"]}>
-                    <h3 className={styles['h3']}>Product Name</h3>
-                    <p className={styles['p']}><strong>Price:</strong> $100</p>
-                    <p className={styles['p']}><strong>Title:</strong> Brand A</p>
+                    <h3 className={styles['h3']}>Mercedes</h3>
+                    <p className={styles['p']}><strong>Model:</strong> C220</p>
+                    <p className={styles['p']}><strong>Color:</strong> Grey</p>
                     <button className={styles["details-btn"]}>Details</button>
                 </div>
-
             </section>
             <section className={styles["product-section"]}>
                 <h2>Liked Products</h2>
                 <div className={styles["product"]}>
-                    <h3 className={styles['h3']}>Product Name</h3>
-                    <p className={styles['p']}><strong>Price:</strong> $200</p>
-                    <p className={styles['p']}><strong>Title:</strong> Brand C</p>
+                    <h3 className={styles['h3']}>BMW</h3>
+                    <p className={styles['p']}><strong>Model:</strong> Third Series</p>
+                    <p className={styles['p']}><strong>Color:</strong> Black</p>
                     <button className={styles["details-btn"]}>Details</button>
                 </div>                
                 <div className={styles["product"]}>
-                    <h3 className={styles['h3']}>Product Name</h3>
-                    <p className={styles['p']}><strong>Price:</strong> $200</p>
-                    <p className={styles['p']}><strong>Title:</strong> Brand C</p>
+                    <h3 className={styles['h3']}>BMW</h3>
+                    <p className={styles['p']}><strong>Model:</strong> Third Series</p>
+                    <p className={styles['p']}><strong>Color:</strong> Black</p>
                     <button className={styles["details-btn"]}>Details</button>
-                </div>                
+                </div>                               
             </section>
         </div>
     </main>
