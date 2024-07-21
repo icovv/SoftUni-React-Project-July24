@@ -5,7 +5,7 @@ import useLocalStorageState from '../hooks/setLocalStorageState';
 
 let AuthContext = createContext();
 
-export default AuthProvider =>({
+export const AuthProvider = ({
     children,
 }) => {
     
@@ -13,12 +13,13 @@ export default AuthProvider =>({
 
     let loginHandler = async (value) => {
         let data = await login(value.email, value.passowrd);
-
+        console.log(data);
+        setLocalStorageState(data);
     }
 
 
     let values = {
-
+        loginHandler,
     }
     return (
         <AuthContext.Provider value={values}>
@@ -26,3 +27,5 @@ export default AuthProvider =>({
         </AuthContext.Provider>
     )
 }
+
+export default AuthContext;

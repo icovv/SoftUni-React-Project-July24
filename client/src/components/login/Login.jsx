@@ -1,11 +1,15 @@
+import { useContext } from "react"
 import useForm from "../../hooks/useForm"
 import styles from "./Login.module.css"
+import AuthContext from "../../context/AuthContext";
 
 export default function Login(){
-    let {value,changeHandler, submitHandler} = useForm('login',{
+    let {loginHandler} = useContext(AuthContext);
+    let {value,changeHandler,submitHandler} = useForm('login',{
         email:'',
         password:''
     })
+
     return(
         <main className={styles["main"]}>
         <div className={styles["login-form"]}>

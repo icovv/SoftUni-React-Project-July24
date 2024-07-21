@@ -11,10 +11,12 @@ import Register from './components/register/Register'
 import Login from './components/login/Login'
 import Details from './components/item-details/Details'
 import Edit from './components/edit-item/Edit'
+import {AuthProvider} from '../src/context/AuthContext';
 function App() {
 
   return (
     <>
+    <AuthProvider>
     <Header></Header>
 
       <Routes>
@@ -33,6 +35,7 @@ function App() {
       </Routes>
 
     <Footer></Footer>
+    </AuthProvider>
     </>
   )
 }

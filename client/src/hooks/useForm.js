@@ -1,9 +1,7 @@
-import { useState } from "react"
-
+import { useState, useContext } from "react"
 
 export default function useForm(formType,initialValue){
     let [value,setValue] = useState(initialValue);
-
     let changeHandler = (e) => {
         setValue(state => ({
             ...state,
@@ -25,7 +23,14 @@ export default function useForm(formType,initialValue){
         }
         
         if (formType == `login`){
-            console.log('logged in')
+            if (value.email == '' || value.password == ''){
+                return alert('All fields are required!')
+            }
+
+            let trimmedEmail = value.email.trim();
+            let trimmedPassword = value.password.trim();
+
+
             
             setValue({
                 email: '',
