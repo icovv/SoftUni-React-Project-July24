@@ -10,7 +10,7 @@
     flex-wrap: wrap;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.699);
-    margin: 70px auto;
+    margin: 50px auto;
     min-height: 400px;
     max-width: 60%;
     padding: 20px;
@@ -36,7 +36,7 @@
 }
 
 .details-content {
-    padding: 2em;
+    padding: 10px;
     width: 50%;
 }
 

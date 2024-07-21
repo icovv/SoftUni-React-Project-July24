@@ -34,6 +34,7 @@ export default function Details(){
                     <button className={styles["delete-btn"]}>Delete</button>
                     <button className={styles["like-btn"]}>Like</button>
                 </div>
+                <p style={{color:"#857776", marginTop: "30px"}}> Current Number of Likes: </p>
             </div>
         </div>
     </main>
