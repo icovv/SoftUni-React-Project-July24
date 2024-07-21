@@ -9,6 +9,7 @@ import Search from './components/search/Search'
 import Profile from './components/profile/Profile'
 import Register from './components/register/Register'
 import Login from './components/login/Login'
+import Details from './components/item-details/Details'
 function App() {
 
   return (
@@ -17,7 +18,10 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+
         <Route path='/catalog' element={<Catalog></Catalog>}></Route>
+        <Route path='/catalog/details' element={<Details></Details>}></Route>
+        
         <Route path='/listItem' element={<List></List>}></Route>
         <Route path='/search' element={<Search></Search>}></Route>
         <Route path='/profile' element={<Profile></Profile>}></Route>
