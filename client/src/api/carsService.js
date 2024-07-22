@@ -20,3 +20,14 @@ export async function getCertainCar(brand){
 export async function getOneCar(id){
     return await get(`http://localhost:3030/data/cars/${id}`);
 }
+
+export async function getAllCreatedCarsByUser(userID){
+    let data = await getAllCars();
+    let result = [];
+    for (let item of data ){
+        if (item._ownerId == userID){
+            result.push(item);
+        }
+    }
+    return result;
+}

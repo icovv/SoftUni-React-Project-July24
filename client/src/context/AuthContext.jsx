@@ -45,7 +45,9 @@ export const AuthProvider = ({
         loginHandler,
         registerHandler,
         logoutHandler,
-        isAuthenticated: !!state.accessToken 
+        isAuthenticated: !!state.accessToken,
+        id: state._id,
+        email: state.email,
     }
     return (
         <AuthContext.Provider value={values}>
