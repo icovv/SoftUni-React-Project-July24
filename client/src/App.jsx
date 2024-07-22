@@ -13,6 +13,7 @@ import Details from './components/item-details/Details'
 import Edit from './components/edit-item/Edit'
 import {AuthProvider} from '../src/context/AuthContext';
 import AuthGuard from './guards/AuthGuard'
+import LoggedInGuard from './guards/LoggedInGuard'
 function App() {
 
   return (
@@ -34,8 +35,11 @@ function App() {
         </Route>
 
         <Route path='/search' element={<Search></Search>}></Route>
+        
+        <Route element={<LoggedInGuard></LoggedInGuard>}>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        </Route>
       </Routes>
 
     <Footer></Footer>

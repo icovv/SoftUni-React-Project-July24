@@ -26,7 +26,7 @@ export default function useForm(formType,initialValue,onSubmitHandler){
         
         if (formType == `login`){
             if (value.email.trim() == '' || value.password.trim() == ''){
-                return {message: 'All fields are required!'};
+                return alert('All fields are required!');
             }
             let {email, password} = value
 
