@@ -7,7 +7,7 @@ export default function Header() {
     return (
         <header>
             <div className={styles.Header}>
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/035/915/849/small/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.png" href="/" className={styles.logo}></img>
+                <a href="/" ><img src="https://static.vecteezy.com/system/resources/thumbnails/035/915/849/small/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.png" className={styles.logo}></img></a>
                 {isAuthenticated
                     ?
                     <ul className={styles.Menu}>
