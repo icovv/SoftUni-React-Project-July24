@@ -57,12 +57,14 @@ export default function Register(){
 
     return(
         <main>
+            <div className={styles["error-container"]}>
             {err.length > 0 
             ?
-            err.map(item => <div key={item.message}>{item.message}</div>)
+            err.map(item => <div key={item.message} className={styles["error-message"]}id="error-message">{item.message}</div> )
             :
             <></>
             }
+            </div>
             
             <div className={styles["register-form"]}>
                 <h1 >Registration Form</h1>

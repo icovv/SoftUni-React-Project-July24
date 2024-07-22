@@ -38,12 +38,14 @@ export default function Login(){
 
     return(
         <main className={styles["main"]}>
+            <div className={styles["error-container"]}>
             {err.length > 0 
             ?
-            err.map(item => <div key={item.message}>{item.message}</div>)
+            err.map(item => <div key={item.message} className={styles["error-message"]}id="error-message">{item.message}</div> )
             :
             <></>
             }
+            </div>
         <div className={styles["login-form"]}>
             <h1>Login Form</h1>
             <form className={styles["form"]} onSubmit={submitHandler}>

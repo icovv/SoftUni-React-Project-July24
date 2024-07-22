@@ -27,6 +27,5 @@ export default function useForm(formType,initialValue){
     return{
         value,
         changeHandler,
-        submitHandler
     }
 }
