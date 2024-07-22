@@ -14,6 +14,7 @@ export async function getCertainCar(brand){
         result.push(item);
     }
    }
+   console.log(result.length);
    return result;
 }
 

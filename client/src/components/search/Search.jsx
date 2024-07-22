@@ -20,9 +20,9 @@ export default function Search() {
     let submitHandler = async (e) => {
         e.preventDefault();
             let result = await getCertainCar(value);
-        if (result.length > 0){
             setData(result);
-        }
+            setValue(``);
+
     }
     return (
         <main>
@@ -35,7 +35,7 @@ export default function Search() {
             ?
             data.map(item =><SearchItem key={item._id} car = {item}></SearchItem>)
             :
-            <h2>There are no items currently!</h2>
+            <h2 style={{marginLeft: "490px", marginTop:"150px", fontSize:"30px"}}>There are no such cars currently</h2>
              }
         </main>
     )
