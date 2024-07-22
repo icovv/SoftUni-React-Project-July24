@@ -2,21 +2,22 @@ import { useContext, useEffect, useState } from 'react'
 import styles from './Profile.module.css'
 import AuthContext from '../../context/AuthContext'
 import ProfileListed from './profile-listed-products/ProfileListed';
-import { getAllCreatedCarsByUser } from '../../api/carsService';
+import { getAllCreatedCarsByUser, getAllLikedCarsByUser } from '../../api/carsService';
+import ProfileLiked from './profile-liked-products/ProfileLiked';
 
 
 export default function Profile(){
     let {id, email} = useContext(AuthContext);
-    let [data,setData] = useState([]);
-
+    let [cars,setCars] = useState({listed:[],liked:[]});
     useEffect(()=> {
         async function getCreatedCars(){
-            let data = await getAllCreatedCarsByUser(id);
-            console.log(data);
-            setData(data);
+            let listed = await getAllCreatedCarsByUser(id);
+            let liked = await getAllLikedCarsByUser(id);
+            setCars({listed:listed, liked:liked});
         }
         getCreatedCars();
     },[])
+    console.log(cars.liked);
     return(
         <main className={styles.main}>
         <div className={styles["profile-container"]}>
@@ -33,27 +34,21 @@ export default function Profile(){
         <div className={styles["products-container"]}>
             <section className={styles["product-section"]}>
                 <h2>Listed Products</h2>
-                {data.length >0
+                {cars.listed.length >0
                 ? 
-                data.map(item =><ProfileListed key={item._id} car = {item}></ProfileListed>)
+                cars.listed.map(item =><ProfileListed key={item._id} car = {item}></ProfileListed>)
                 :
-                <h3> There are no Listed Cars! </h3>
+                <h3 style={{marginLeft: "45px", marginTop: "90px", fontSize: "20px"}}> There are no Listed Cars! </h3>
                 }
             </section>
             <section className={styles["product-section"]}>
                 <h2>Liked Products</h2>
-                <div className={styles["product"]}>
-                    <h3 className={styles['h3']}>BMW</h3>
-                    <p className={styles['p']}><strong>Model:</strong> Third Series</p>
-                    <p className={styles['p']}><strong>Color:</strong> Black</p>
-                    <button className={styles["details-btn"]}>Details</button>
-                </div>                
-                <div className={styles["product"]}>
-                    <h3 className={styles['h3']}>BMW</h3>
-                    <p className={styles['p']}><strong>Model:</strong> Third Series</p>
-                    <p className={styles['p']}><strong>Color:</strong> Black</p>
-                    <button className={styles["details-btn"]}>Details</button>
-                </div>                               
+                {cars.liked.length>0
+                ?
+                cars.liked.map(item => <ProfileLiked key={item._id} car = {item}></ProfileLiked>)
+                :
+                <h3 style={{marginLeft: "45px", marginTop: "90px", fontSize: "20px"}}> There are no Liked Cars! </h3>
+                }
             </section>
         </div>
     </main>

@@ -31,3 +31,16 @@ export async function getAllCreatedCarsByUser(userID){
     }
     return result;
 }
+
+export async function getAllLikedCarsByUser(userID){
+    let data = await getAllCars();
+    let result = [];
+    for (let item of data){
+        for (let like of item.likes){
+            if (like == userID){
+                result.push(item)
+            }
+        }
+    }
+    return result;
+}
