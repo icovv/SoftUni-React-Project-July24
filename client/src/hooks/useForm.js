@@ -1,7 +1,9 @@
-import { useState, useContext } from "react"
+import { useState} from "react"
+import {useNavigate} from 'react-router-dom'
 
-export default function useForm(formType,initialValue){
+export default function useForm(formType,initialValue,onSubmitHandler){
     let [value,setValue] = useState(initialValue);
+    let navigate = useNavigate();
     let changeHandler = (e) => {
         setValue(state => ({
             ...state,
@@ -9,7 +11,7 @@ export default function useForm(formType,initialValue){
         }))
     }
 
-    let submitHandler = (e) => {
+    async function submitHandler(e){
         e.preventDefault();
         
         if (formType == `register`){
@@ -23,19 +25,20 @@ export default function useForm(formType,initialValue){
         }
         
         if (formType == `login`){
-            if (value.email == '' || value.password == ''){
-                return alert('All fields are required!')
+            if (value.email.trim() == '' || value.password.trim() == ''){
+                return {message: 'All fields are required!'};
             }
+            let {email, password} = value
 
-            let trimmedEmail = value.email.trim();
-            let trimmedPassword = value.password.trim();
-
-
-            
+            let data =  await onSubmitHandler(email,password);
+            if (data.message){
+                return alert(data.message);
+            }
             setValue({
                 email: '',
                 password: '',
             })
+            navigate('/')
         }
 
         if (formType == `edit`){

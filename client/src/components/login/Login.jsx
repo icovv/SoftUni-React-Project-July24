@@ -5,10 +5,10 @@ import AuthContext from "../../context/AuthContext";
 
 export default function Login(){
     let {loginHandler} = useContext(AuthContext);
-    let {value,changeHandler,submitHandler} = useForm('login',{
+    let {value,changeHandler,submitHandler } = useForm('login',{
         email:'',
         password:''
-    })
+    },loginHandler)
 
     return(
         <main className={styles["main"]}>

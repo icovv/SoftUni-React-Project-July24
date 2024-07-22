@@ -8,7 +8,7 @@ export async function requester(method,url,data){
         options.body = JSON.stringify(data);
     }
 
-    // let user = getUserData();
+    let user = JSON.parse(localStorage.getItem('userData'))
     
     if (user){
         options.headers["X-Authorization"] = user.accessToken;
@@ -18,10 +18,10 @@ export async function requester(method,url,data){
         let response = await fetch(url,options);
         if (!response.ok){
             if (response.status == 403){
-                deleteUserData();
+                localStorage.removeItem('userData');
             }
             let err = await response.json();
-            return alert(err.message)
+            return err
         }
         if (response.status == 204){
             return response
@@ -29,7 +29,7 @@ export async function requester(method,url,data){
             return response.json();
         }
     } catch (error) {
-        return alert(error.message)
+        return error
     }
 }
 

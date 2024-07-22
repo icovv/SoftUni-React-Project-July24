@@ -10,16 +10,24 @@ export const AuthProvider = ({
 }) => {
     
     let [state,setLocalStorageState] = useLocalStorageState({})
+    console.log(state);
 
-    let loginHandler = async (value) => {
-        let data = await login(value.email, value.passowrd);
-        console.log(data);
+    let loginHandler = async (email,password) => {
+        
+        let data = await login(email, password);    
+        let {message} = data;
+        if(message){
+            return data;
+        }
+
         setLocalStorageState(data);
+        return data;
     }
 
 
     let values = {
         loginHandler,
+        isAuthenticated: !!state.accessToken 
     }
     return (
         <AuthContext.Provider value={values}>
