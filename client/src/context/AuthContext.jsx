@@ -1,6 +1,6 @@
 import {createContext} from 'react'
 import { post } from '../api/requester';
-import { login } from '../api/userService';
+import { login, logout, register } from '../api/userService';
 import useLocalStorageState from '../hooks/setLocalStorageState';
 
 let AuthContext = createContext();
@@ -10,7 +10,6 @@ export const AuthProvider = ({
 }) => {
     
     let [state,setLocalStorageState] = useLocalStorageState({})
-    console.log(state);
 
     let loginHandler = async (email,password) => {
         
@@ -24,9 +23,28 @@ export const AuthProvider = ({
         return data;
     }
 
+    let registerHandler = async (email,password) => {
+
+        let data = await register(email,password);
+        let {message} = data;
+        if(message){
+            return data;
+        }
+        setLocalStorageState(data);
+        return data;
+    }
+
+    let logoutHandler = async() => {
+        await logout();
+        setLocalStorageState({});
+        localStorage.clear();
+    }
+
 
     let values = {
         loginHandler,
+        registerHandler,
+        logoutHandler,
         isAuthenticated: !!state.accessToken 
     }
     return (

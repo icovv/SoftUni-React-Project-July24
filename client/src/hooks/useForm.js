@@ -15,13 +15,36 @@ export default function useForm(formType,initialValue,onSubmitHandler){
         e.preventDefault();
         
         if (formType == `register`){
-            console.log('registered')
+            let pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
 
+            if (value.email.trim() == '' || value.password.trim() == ''){
+                return alert('All fields are required!');
+            }
+            if(!pattern.test(value.email.trim())){
+                return alert('You have to type a valid email!');
+            }
+            if(value.password.trim().length < 4){
+                return alert('Your password must be at least 4 symbols long!');
+            }
+            if(value.password.trim() != value.repass.trim()){
+                return alert('Your passwords should match!');
+            }
+            let {email,password} = value;
+
+            email.trim();
+            password.trim();
+
+            let data = await onSubmitHandler(email,password);
+
+            if (data.message){
+                return alert(data.message);
+            }
             setValue({
                 email: '',
                 password: '',
                 repass: ''
             })
+            navigate('/')
         }
         
         if (formType == `login`){
@@ -29,6 +52,9 @@ export default function useForm(formType,initialValue,onSubmitHandler){
                 return alert('All fields are required!');
             }
             let {email, password} = value
+
+            email.trim();
+            password.trim();
 
             let data =  await onSubmitHandler(email,password);
             if (data.message){

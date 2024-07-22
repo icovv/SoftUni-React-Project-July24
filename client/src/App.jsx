@@ -14,6 +14,7 @@ import Edit from './components/edit-item/Edit'
 import {AuthProvider} from '../src/context/AuthContext';
 import AuthGuard from './guards/AuthGuard'
 import LoggedInGuard from './guards/LoggedInGuard'
+import Logout from './components/logout/Logout'
 function App() {
 
   return (
@@ -31,7 +32,7 @@ function App() {
         <Route path='/catalog/details/edit/:itemID' element={<Edit></Edit>}></Route>
         <Route path='/listItem' element={<List></List>}></Route>
         <Route path='/profile' element={<Profile></Profile>}></Route>
-        <Route path='/logout' element={<Home></Home>}></Route>
+        <Route path='/logout' element={<Logout></Logout>}></Route>
         </Route>
 
         <Route path='/search' element={<Search></Search>}></Route>

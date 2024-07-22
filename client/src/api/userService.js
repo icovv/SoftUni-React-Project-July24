@@ -1,4 +1,4 @@
-import { post } from "./requester";
+import { post,get } from "./requester";
 
 export async function register(email,password){
     return await post("http://localhost:3030/users/register",{email,password})
