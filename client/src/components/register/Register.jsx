@@ -8,7 +8,7 @@ export default function Register(){
     let {value, changeHandler,submitHandler} = useForm("register", {
         email:'',
         password:'',
-        repass:''
+        repass:'',
     }, registerHandler);
 
     return(
