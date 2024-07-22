@@ -1,17 +1,49 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import useForm from "../../hooks/useForm"
 import styles from "./Login.module.css"
 import AuthContext from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Login(){
     let {loginHandler} = useContext(AuthContext);
-    let {value,changeHandler,submitHandler } = useForm('login',{
+    let [err, setErr] = useState([]);
+    let navigate = useNavigate();
+    let {value,changeHandler,} = useForm('login',{
         email:'',
         password:''
-    },loginHandler)
+    })
+
+    let submitHandler = async (e) => {
+        e.preventDefault();
+        if (value.email.trim() == '' || value.password.trim() == ''){
+            changeHandler(e,[{message:"All fields are required!"}]);
+            setErr([{message:"All fields are required!"}])
+            return;
+            // return alert('All fields are required!');
+        }
+        let {email, password} = value
+
+        email.trim();
+        password.trim();
+
+        let data =  await loginHandler(email,password);
+        if (data.message){
+            changeHandler(e,[{message:data.message}]);
+            setErr([{message:data.message}])
+            return;
+            // return alert(data.message);
+        }
+        navigate('/')
+    }
 
     return(
         <main className={styles["main"]}>
+            {err.length > 0 
+            ?
+            err.map(item => <div key={item.message}>{item.message}</div>)
+            :
+            <></>
+            }
         <div className={styles["login-form"]}>
             <h1>Login Form</h1>
             <form className={styles["form"]} onSubmit={submitHandler}>

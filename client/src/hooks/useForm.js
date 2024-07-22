@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
 
 export default function useForm(formType,initialValue,onSubmitHandler){
     let [value,setValue] = useState(initialValue);
-    let navigate = useNavigate();
+    // let navigate = useNavigate();
     let changeHandler = (e,err) => {
         if (!!err){
         if (formType == 'register' && err.length > 0){
@@ -11,6 +11,12 @@ export default function useForm(formType,initialValue,onSubmitHandler){
                 email: value.email,
                 password:'',
                 repass : ''
+            }))
+        }
+        if (formType == 'login' && err.length > 0){
+            setValue(state => ({
+                email: value.email,
+                password:'',
             }))
         }
         }
@@ -56,25 +62,25 @@ export default function useForm(formType,initialValue,onSubmitHandler){
         //     navigate('/')
         // }
         
-        if (formType == `login`){
-            if (value.email.trim() == '' || value.password.trim() == ''){
-                return alert('All fields are required!');
-            }
-            let {email, password} = value
+        // if (formType == `login`){
+        //     if (value.email.trim() == '' || value.password.trim() == ''){
+        //         return alert('All fields are required!');
+        //     }
+        //     let {email, password} = value
 
-            email.trim();
-            password.trim();
+        //     email.trim();
+        //     password.trim();
 
-            let data =  await onSubmitHandler(email,password);
-            if (data.message){
-                return alert(data.message);
-            }
-            setValue({
-                email: '',
-                password: '',
-            })
-            navigate('/')
-        }
+        //     let data =  await onSubmitHandler(email,password);
+        //     if (data.message){
+        //         return alert(data.message);
+        //     }
+        //     setValue({
+        //         email: '',
+        //         password: '',
+        //     })
+        //     navigate('/')
+        // }
 
         if (formType == `edit`){
             console.log(value.fuel)
