@@ -1,18 +1,45 @@
+import { useParams } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import styles from './Edit.module.css'
+import { useEffect, useState } from 'react';
+import { getOneCar } from '../../api/carsService';
 
 export default function List() {
-    let {value,changeHandler,submitHandler} = useForm('edit', {
-        brand:"",
-        year:"",
-        model:"",
-        capacity:"",
-        power:"",
-        fuel: "",
-        color:"",
-        image:"",
-        description:"",
+    let {itemID} = useParams();
+
+    useEffect(() => {
+        async function getItem(){
+            let data = await getOneCar(itemID);
+            changeValues({
+                brand: data.carBrand,
+                year: data.year,
+                model: data.carModel,
+                capacity: data.engineCapacity,
+                power: data.horsePower,
+                fuel: data.fuelType,
+                color: data.color,
+                image: data.imageURL,
+                description: data.description,
+            });
+            console.log(data);
+        }
+        getItem();
+    },[])
+    let {value,changeHandler,changeValues} = useForm('edit', {
+        brand: '',
+        year: '',
+        model: '',
+        capacity: '',
+        power: '',
+        fuel: '',
+        color: '',
+        image: '',
+        description: '',
     })
+
+    let submitHandler = (e) => {
+        e.preventDefault();
+    }
     return (
         <main className={styles.main}>
 
@@ -42,8 +69,8 @@ export default function List() {
                     <div >
                         <label htmlFor="fuel-type" >Fuel Type</label>
                         <select style={{marginBottom: "15px"}} id="fuel" name="fuel" value={value.fuel} onChange={changeHandler} required>
-                        <option value="petrol">Petrol</option>
-                        <option value="diesel">Diesel</option>
+                        <option value="Petrol">Petrol</option>
+                        <option value="Diesel">Diesel</option>
                         </select>
                     </div>
                     <div className={styles['form-group']}>

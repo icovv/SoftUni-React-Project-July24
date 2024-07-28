@@ -143,8 +143,8 @@ export default function List() {
                         <label htmlFor="fuel-type" >Fuel Type</label>
                         <select style={{ marginBottom: "15px" }} id="fuel" name="fuel" value={value.fuel || ``} onChange={changeHandler} required >
                             <option value="">---</option>
-                            <option value="petrol">Petrol</option>
-                            <option value="diesel">Diesel</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
                         </select>
                     </div>
                     <div className={styles['form-group']}>

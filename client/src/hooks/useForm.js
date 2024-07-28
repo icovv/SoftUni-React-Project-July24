@@ -23,9 +23,12 @@ export default function useForm(formType,initialValue){
             [e.target.name]: e.target.value,
         }))
     }
-
+    let changeValues = (newValue) => {
+        setValue(newValue)
+    }
     return{
         value,
         changeHandler,
+        changeValues
     }
 }
