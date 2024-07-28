@@ -1,4 +1,4 @@
-import { get, post } from "./requester";
+import { del, get, post, put } from "./requester";
 
 export async function getAllCars() {
     return await get("http://localhost:3030/data/cars");
@@ -49,4 +49,8 @@ export async function getAllLikedCarsByUser(userID) {
 export async function listItem(items) {
     let data = await post("http://localhost:3030/data/cars", items);
     return data;
+}
+
+export async function deleteCar(id) {
+    return await del(`http://localhost:3030/data/cars/${id}`);
 }
