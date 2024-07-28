@@ -55,12 +55,15 @@ export default function Register(){
         navigate('/')
     }
 
+    let divKill = (e) => {
+        setErr([]);
+    }
     return(
         <main>
             <div className={styles["error-container"]}>
             {err.length > 0 
             ?
-            err.map(item => <div key={item.message} className={styles["error-message"]}id="error-message">{item.message}</div> )
+            err.map(item => <div key={item.message} className={styles["error-message"]}id="error-message" onAnimationEnd={divKill}>{item.message}</div> )
             :
             <></>
             }
