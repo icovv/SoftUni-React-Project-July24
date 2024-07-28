@@ -9,12 +9,11 @@ export default function Details(){
     useEffect(() => {
         async function getItem(){
             let data = await getOneCar(itemID);
-            console.log(data);
+            console.log(data.likes.length);
             setItem(data);
         }
         getItem();
     },[])
-
     return(
         <main className={styles['main']}>
         <div className={styles["product-details"]}>
@@ -35,7 +34,7 @@ export default function Details(){
                     <a href= "#" ><button className={styles["delete-btn"]}>Delete</button></a>
                     <a href= "#" ><button className={styles["like-btn"]}>Like</button> </a>
                 </div>
-                <p style={{color:"#857776", marginTop: "30px"}}> Current Number of Likes: </p>
+                <p style={{color:"#857776", marginTop: "30px"}}> Current Number of Likes: {item.likes? item.likes.length : ``} </p>
             </div>
         </div>
     </main>
