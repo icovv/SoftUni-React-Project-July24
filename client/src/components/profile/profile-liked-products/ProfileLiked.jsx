@@ -15,7 +15,7 @@ export default function ProfileLiked({
             setCar(data);
         }
         getCar();
-    })   
+    },[])   
     return (
         <div className={styles["product"]}>
             <h3 className={styles['h3']}>{car.carBrand}</h3>

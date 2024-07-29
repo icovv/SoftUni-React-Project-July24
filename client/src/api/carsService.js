@@ -47,9 +47,23 @@ export async function getAllLikedCarsByUser(userID) {
     return result;
 }
 
+export async function getCertainCarLikes(id){
+    let data = await get("http://localhost:3030/jsonstore/likes/likes");
+    let dataAsArr = Object.entries(data);
+    for (let [itemID,itemData] of dataAsArr) {
+        if (itemData.carID == id){
+            return itemData
+        }
+        }
+}
+
 export async function listItem(items) {
     let data = await post("http://localhost:3030/data/cars", items);
     return data;
+}
+export async function createLikesForCar(carID){
+   return await post ('http://localhost:3030/jsonstore/likes/likes', {"carID": carID, likesCounter: []});
+
 }
 
 export async function deleteCar(id) {

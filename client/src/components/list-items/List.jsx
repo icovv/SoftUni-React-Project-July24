@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import useForm from '../../hooks/useForm'
 import styles from './List.module.css'
-import { listItem } from '../../api/carsService';
+import { createLikesForCar, listItem } from '../../api/carsService';
 import { useNavigate } from 'react-router-dom';
 
 export default function List() {
@@ -18,7 +18,7 @@ export default function List() {
         image: "",
         description: "",
     });
-    let submitHandler = (e) => {
+    let submitHandler = async (e) => {
         e.preventDefault();
 
         let urlPattern = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
@@ -53,7 +53,7 @@ export default function List() {
         if (!(typeof color == "string")) {
             errors.push({ message: "Please make sure to provide a valid color!" });
         }
-        if (!(fuel == "diesel" || fuel == 'petrol')) {
+        if (!(fuel == "Diesel" || fuel == 'Petrol')) {
             errors.push({ message: "Please make sure to provide a fuel type from the listed ones!" });
 
         }
@@ -78,15 +78,14 @@ export default function List() {
             "horsePower": power,
             "color": color,
             "description": description,
-            "likes": [],
             "imageURL": image,
         }
-        let response = listItem(items);
-        console.log(response);
+        let response = await listItem(items);
         if(response.message){
             setErr([{message: response.message}]);
             return;
         }
+        await createLikesForCar(response._id);
         navigate('/catalog');
         //     {
         //         "year": "2010",
