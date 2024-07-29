@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import styles from './Details.module.css'
-import { deleteCar, deleteCarLikes, getCertainCarLikes, getOneCar, hasUserLiked } from '../../api/carsService';
+import { addLikesToCar, deleteCar, deleteCarLikes, getCertainCarLikes, getOneCar, hasUserLiked } from '../../api/carsService';
 import { useNavigate, useParams } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 
@@ -33,7 +33,13 @@ export default function Details() {
             await deleteCarLikes(itemID);
             navigate('/catalog')
         };
-
+    }   
+    let likeItem = async () => {
+        if (confirm('Are you sure you want to like this item?')) {
+            let data = await addLikesToCar(itemID,id)
+            setLikes(data);
+            setHasLiked(true);
+        };
     }
     return (
         <main className={styles['main']}>
@@ -67,7 +73,7 @@ export default function Details() {
                             </>
                             :
                             <>
-                                <button className={styles["like-btn"]}>Like</button>
+                                <button className={styles["like-btn"]} onClick={likeItem}>Like</button>
                             </>
                             :
                             <></>
@@ -76,7 +82,7 @@ export default function Details() {
                         {hasLiked
                         ?
                         <>
-                        <p style={{ color: "#857776", marginTop: "30px" }}> You have already liked this post!</p>
+                        <p style={{ color: "#857776", marginTop: "30px" }}> You have liked this post!</p>
                         <p style={{ color: "#857776", marginTop: "30px" }}> Current Number of Likes: {likes.likesCounter ? likes.likesCounter.length : ''} </p>
                         </>
                         :

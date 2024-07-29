@@ -85,3 +85,8 @@ export async function deleteCarLikes(carID){
     let carLikesID = car._id;
     return await del(`http://localhost:3030/jsonstore/likes/likes/${carLikesID}`)
 }
+export async function addLikesToCar(carID, userID){
+    let car = await getCertainCarLikes(carID);
+    car.likesCounter.push(userID);
+    return await put(`http://localhost:3030/jsonstore/likes/likes/${car._id}`,car);
+}
