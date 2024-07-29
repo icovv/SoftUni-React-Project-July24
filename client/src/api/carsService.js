@@ -14,7 +14,6 @@ export async function getCertainCar(brand) {
             result.push(item);
         }
     }
-    console.log(result.length);
     return result;
 }
 
@@ -94,5 +93,12 @@ export async function deleteCarLikes(carID){
 export async function addLikesToCar(carID, userID){
     let car = await getCertainCarLikes(carID);
     car.likesCounter.push(userID);
+    return await put(`http://localhost:3030/jsonstore/likes/likes/${car._id}`,car);
+}
+
+export async function removeLikeFromCar(carID,userID){
+    let car = await getCertainCarLikes(carID);
+    let newData = car.likesCounter.filter((item) => item != userID);
+    car.likesCounter = newData;
     return await put(`http://localhost:3030/jsonstore/likes/likes/${car._id}`,car);
 }

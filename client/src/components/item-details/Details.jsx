@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import styles from './Details.module.css'
-import { addLikesToCar, deleteCar, deleteCarLikes, getCertainCarLikes, getOneCar, hasUserLiked } from '../../api/carsService';
+import { addLikesToCar, deleteCar, deleteCarLikes, getCertainCarLikes, getOneCar, hasUserLiked, removeLikeFromCar } from '../../api/carsService';
 import { useNavigate, useParams } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 
@@ -35,11 +35,14 @@ export default function Details() {
         };
     }   
     let likeItem = async () => {
-        if (confirm('Are you sure you want to like this item?')) {
             let data = await addLikesToCar(itemID,id)
             setLikes(data);
             setHasLiked(true);
-        };
+    }
+    let dislikeItem = async () => {
+            let data = await removeLikeFromCar(itemID,id);
+            setLikes(data);
+            setHasLiked(false);
     }
     return (
         <main className={styles['main']}>
@@ -69,17 +72,14 @@ export default function Details() {
                         isAuthenticated 
                         ?
                         hasLiked ?
-                            <>
-                            </>
+                            <button className={styles["like-btn"]} onClick={dislikeItem}>Dislike</button>
                             :
-                            <>
-                                <button className={styles["like-btn"]} onClick={likeItem}>Like</button>
-                            </>
+                            <button className={styles["like-btn"]} onClick={likeItem}>Like</button>
                             :
                             <></>
                         }
                     </div>
-                        {hasLiked
+                        {/* {hasLiked
                         ?
                         <>
                         <p style={{ color: "#857776", marginTop: "30px" }}> You have liked this post!</p>
@@ -87,7 +87,8 @@ export default function Details() {
                         </>
                         :
                         <p style={{ color: "#857776", marginTop: "30px" }}> Current Number of Likes: {likes.likesCounter ? likes.likesCounter.length : ''} </p>
-                        }
+                        } */}
+                        <p style={{ color: "#857776", marginTop: "30px" }}> Current Number of Likes: {likes.likesCounter ? likes.likesCounter.length : ''} </p>
                 </div>
             </div>
         </main>
