@@ -85,7 +85,7 @@ export default function List() {
             setErr([{message: response.message}]);
             return;
         }
-        await createLikesForCar(response._id);
+        await createLikesForCar(response._id, response._ownerId);
         navigate('/catalog');
         //     {
         //         "year": "2010",

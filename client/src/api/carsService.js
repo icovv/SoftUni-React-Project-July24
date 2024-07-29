@@ -61,11 +61,27 @@ export async function listItem(items) {
     let data = await post("http://localhost:3030/data/cars", items);
     return data;
 }
-export async function createLikesForCar(carID){
-   return await post ('http://localhost:3030/jsonstore/likes/likes', {"carID": carID, likesCounter: []});
+export async function createLikesForCar(carID,userID){
+   return await post ('http://localhost:3030/jsonstore/likes/likes', {"carID": carID, likesCounter: [], "_ownerId": userID});
 
 }
 
 export async function deleteCar(id) {
     return await del(`http://localhost:3030/data/cars/${id}`);
+}
+
+export async function hasUserLiked(userID,itemID){
+    let data = await getCertainCarLikes(itemID);
+    for (let like of data.likesCounter) {
+        if (like == userID){
+            return true;
+        }
+    }
+    return false;
+}
+
+export async function deleteCarLikes(carID){
+    let car = await getCertainCarLikes(carID);
+    let carLikesID = car._id;
+    return await del(`http://localhost:3030/jsonstore/likes/likes/${carLikesID}`)
 }

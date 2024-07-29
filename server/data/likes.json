@@ -1,10 +1,10 @@
 {
    "likes": {
     "testID1":
-    {"_id":"testID1","carID":"1", "likesCounter":["847ec027-f659-4086-8032-5173e2f9c93a"]},
+    {"_id":"testID1","carID":"1", "likesCounter":["847ec027-f659-4086-8032-5173e2f9c93a"], "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8"},
     "testID2":
-    {"_id":"testID2","carID":"2", "likesCounter":[]},
+    {"_id":"testID2","carID":"2", "likesCounter":[], "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8"},
     "testID3":
-    {"_id":"testID3","carID":"3", "likesCounter":["35c62d76-8152-4626-8712-eeb96381bea8"]}
+    {"_id":"testID3","carID":"3", "likesCounter":["35c62d76-8152-4626-8712-eeb96381bea8"], "_ownerId":"847ec027-f659-4086-8032-5173e2f9c93a"}
    }
 }
