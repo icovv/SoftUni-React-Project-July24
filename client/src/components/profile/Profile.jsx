@@ -45,7 +45,7 @@ export default function Profile(){
                 <h2>Liked Products</h2>
                 {cars.liked.length>0
                 ?
-                cars.liked.map(item => <ProfileLiked key={item._id} car = {item}></ProfileLiked>)
+                cars.liked.map(item => <ProfileLiked key={item.carID} carID = {item.carID}></ProfileLiked>)
                 :
                 <h3 style={{marginLeft: "45px", marginTop: "90px", fontSize: "20px"}}> There are no Liked Cars! </h3>
                 }

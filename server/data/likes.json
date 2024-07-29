@@ -1,5 +1,10 @@
 {
-    "1":["847ec027-f659-4086-8032-5173e2f9c93a"],
-    "2":[],
-    "3":["35c62d76-8152-4626-8712-eeb96381bea8"]
+   "likes": {
+    "testID1":
+    {"_id":"testID1","carID":"1", "likesCounter":["847ec027-f659-4086-8032-5173e2f9c93a"]},
+    "testID2":
+    {"_id":"testID2","carID":"2", "likesCounter":[]},
+    "testID3":
+    {"_id":"testID3","carID":"3", "likesCounter":["35c62d76-8152-4626-8712-eeb96381bea8"]}
+   }
 }

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import styles from './Details.module.css'
-import { deleteCar, getOneCar, likeCar } from '../../api/carsService';
+import { deleteCar, getOneCar } from '../../api/carsService';
 import { useNavigate, useParams } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 
@@ -12,7 +12,6 @@ export default function Details(){
     useEffect(() => {
         async function getItem(){
             let data = await getOneCar(itemID);
-            console.log(data.likes.length);
             setItem(data);
         }
         getItem();
@@ -43,7 +42,7 @@ export default function Details(){
                     <a ><button className={styles["delete-btn"]} onClick={deleteItem}>Delete</button></a>
                     <a ><button className={styles["like-btn"]}>Like</button> </a>
                 </div>
-                <p style={{color:"#857776", marginTop: "30px"}}> Current Number of Likes: {item.likes? item.likes.length : ``} </p>
+                <p style={{color:"#857776", marginTop: "30px"}}> Current Number of Likes:  </p>
             </div>
         </div>
     </main>

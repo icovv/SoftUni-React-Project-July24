@@ -34,15 +34,16 @@ export async function getAllCreatedCarsByUser(userID) {
 }
 
 export async function getAllLikedCarsByUser(userID) {
-    let data = await getAllCars();
+    let data = await get("http://localhost:3030/jsonstore/likes/likes");
+    let dataAsArr = Object.entries(data);
     let result = [];
-    for (let item of data) {
-        for (let like of item.likes) {
-            if (like == userID) {
-                result.push(item)
+    for (let [id,itemData] of dataAsArr) {
+            for (let like of itemData.likesCounter){
+                if (like == userID) {
+                    result.push(itemData)
+                }
             }
         }
-    }
     return result;
 }
 
