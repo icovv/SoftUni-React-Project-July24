@@ -79,15 +79,6 @@ export default function Details() {
                             <></>
                         }
                     </div>
-                        {/* {hasLiked
-                        ?
-                        <>
-                        <p style={{ color: "#857776", marginTop: "30px" }}> You have liked this post!</p>
-                        <p style={{ color: "#857776", marginTop: "30px" }}> Current Number of Likes: {likes.likesCounter ? likes.likesCounter.length : ''} </p>
-                        </>
-                        :
-                        <p style={{ color: "#857776", marginTop: "30px" }}> Current Number of Likes: {likes.likesCounter ? likes.likesCounter.length : ''} </p>
-                        } */}
                         <p style={{ color: "#857776", marginTop: "30px" }}> Current Number of Likes: {likes.likesCounter ? likes.likesCounter.length : ''} </p>
                 </div>
             </div>
