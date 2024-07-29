@@ -61,6 +61,12 @@ export async function listItem(items) {
     let data = await post("http://localhost:3030/data/cars", items);
     return data;
 }
+
+export async function editItem(carID,items){
+    let data = await put(`http://localhost:3030/data/cars/${carID}`,items);
+    return data;
+}
+
 export async function createLikesForCar(carID,userID){
    return await post ('http://localhost:3030/jsonstore/likes/likes', {"carID": carID, likesCounter: [], "_ownerId": userID});
 
