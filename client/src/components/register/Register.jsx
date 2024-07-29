@@ -77,7 +77,7 @@ export default function Register(){
                     <label className={styles["register-form-label"]}>Password</label>
                     <input className={styles["register-form-input"]} type="password" name="password" value={value.password || ``} onChange={changeHandler} ></input>
                     <label className={styles["register-form-label"]}>Repeat Password</label>
-                    <input className={styles["register-form-input"]} type="repass" name="repass" value={value.repass || ``} onChange={changeHandler} ></input>
+                    <input className={styles["register-form-input"]} type="password" name="repass" value={value.repass || ``} onChange={changeHandler} ></input>
                     <input className={styles["register-form-input"]} type="submit" value="Submit"></input>
                 </form>
             </div>
