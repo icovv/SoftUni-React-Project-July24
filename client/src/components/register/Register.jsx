@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import useForm from '../../hooks/useForm'
 import styles from './Register.module.css'
 import AuthContext from '../../context/AuthContext';
+import { Link } from 'react-router-dom';
 
 export default function Register(){
     let {registerHandler} = useContext(AuthContext)
@@ -82,7 +83,7 @@ export default function Register(){
                 </form>
             </div>
             <div className={styles["no-acc-box"]}>
-                <h1 className={styles["no-acc"]}>Already have an account?<a href="/login" className={styles["anchr"]}>Login here</a></h1>
+                <h1 className={styles["no-acc"]}>Already have an account?<Link to="/login" className={styles["anchr"]}>Login here</Link></h1>
             </div>
         </main>
     )

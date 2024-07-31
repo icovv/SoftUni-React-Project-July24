@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import useForm from "../../hooks/useForm"
 import styles from "./Login.module.css"
 import AuthContext from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login(){
     let {loginHandler} = useContext(AuthContext);
@@ -60,7 +60,7 @@ export default function Login(){
             </form>
         </div>
         <div className={styles["no-acc-box"]}>
-            <h1 className={styles["no-acc"]}>New to our store?<a href="/register" className={styles["anchr"]}>Register here</a> </h1>
+            <h1 className={styles["no-acc"]}>New to our store?<Link to="/register" className={styles["anchr"]}>Register here</Link> </h1>
         </div>
     </main>
     )

@@ -64,7 +64,7 @@ export default function Details() {
                         {isAuthenticated && isOwner
                             ?
                             <>
-                                <a href={`edit/${item._id}`} ><button className={styles["edit-btn"]}>Edit</button></a>
+                                <Link to={`edit/${item._id}`} ><button className={styles["edit-btn"]}>Edit</button></Link>
                                 <button className={styles["delete-btn"]} onClick={deleteItem}>Delete</button>
                             </>
 

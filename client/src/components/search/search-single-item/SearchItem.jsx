@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './SearchItem.module.css'
 
 export default function SearchItem(
@@ -11,7 +12,7 @@ export default function SearchItem(
         <h1 style={{color:"black"}}>{car.carBrand}</h1>
         <h3 style={{color:"black"}}>Model: {car.carModel}</h3>
         <h3 style={{color:"black"}}>Horse Power: {car.horsePower}</h3>
-        <a href={`/catalog/details/${car._id}`}><button className={styles.button}>Details</button></a>
+        <Link to={`/catalog/details/${car._id}`}><button className={styles.button}>Details</button></Link>
       </div>
     )
 }
