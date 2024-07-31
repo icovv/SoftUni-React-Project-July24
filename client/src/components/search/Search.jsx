@@ -5,14 +5,16 @@ import { getAllCars, getCertainCar } from "../../api/carsService";
 
 export default function Search() {
     let [data, setData] = useState([]);
-
+    let [loading,setIsLoading] = useState(true);
     let [value,setValue] = useState(``);
     useEffect(()=> {
         async function takeInitialData(){
            let data = await getAllCars();
             setData(data);
+            setIsLoading(false);
         }
         takeInitialData();
+
     }, [])
     let changeHandler = (e) => {
         setValue([e.target.name] = e.target.value);
@@ -25,6 +27,10 @@ export default function Search() {
 
     }
     return (
+        loading == true 
+        ?
+        <div className={styles["loader"]}></div>
+        :
         <main>
             <form className={styles['example']} onSubmit={submitHandler}>
                 <input type="text" placeholder="Search.." name="search" value={value} onChange={changeHandler}></input>

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import styles from './Details.module.css'
 import { addLikesToCar, deleteCar, deleteCarLikes, getCertainCarLikes, getOneCar, hasUserLiked, removeLikeFromCar } from '../../api/carsService';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 
 export default function Details() {
@@ -11,6 +11,7 @@ export default function Details() {
     let [likes, setLikes] = useState({});
     let [isOwner, setisOwner] = useState(false);
     let [hasLiked, setHasLiked] = useState(``);
+    let [loading,setIsLoading] = useState(true);
     let navigate = useNavigate();
     useEffect(() => {
         async function getItem() {
@@ -23,6 +24,7 @@ export default function Details() {
             if (id == data._ownerId) {
                 setisOwner(true);
             }
+            setIsLoading(false);
         }
         getItem();
     }, [])
@@ -45,6 +47,10 @@ export default function Details() {
             setHasLiked(false);
     }
     return (
+        loading == true 
+        ?
+        <div className={styles["loader"]}></div>
+        :
         <main className={styles['main']}>
             <div className={styles["product-details"]}>
                 <div className={styles["image-container"]}>
@@ -64,7 +70,7 @@ export default function Details() {
                         {isAuthenticated && isOwner
                             ?
                             <>
-                                <Link to={`edit/${item._id}`} ><button className={styles["edit-btn"]}>Edit</button></Link>
+                                <Link to={`/catalog/details/edit/${itemID}`} ><button className={styles["edit-btn"]}>Edit</button></Link>
                                 <button className={styles["delete-btn"]} onClick={deleteItem}>Delete</button>
                             </>
 

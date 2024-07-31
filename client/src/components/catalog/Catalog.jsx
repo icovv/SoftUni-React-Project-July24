@@ -5,16 +5,20 @@ import CatalogItem from './catalog-single-item/CatalogItem';
 
 export default function Catalog(){
     let [cars,setCars] = useState([]);
+    let [loading, setIsLoading] = useState(true);
     useEffect(() => {
         async function getCars(){
             let data = await getAllCars();
-            console.log(data)
             setCars(data);
+            setIsLoading(false);
         }
         getCars();
     },[]);
-
     return(
+        loading == true
+        ?
+        <div className={styles["loader"]}></div>
+        :
         <main>
         <h1 className={styles.header}>All listed cars</h1>
         {cars.length > 0 

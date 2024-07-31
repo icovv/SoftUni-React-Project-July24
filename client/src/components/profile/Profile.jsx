@@ -9,16 +9,44 @@ import ProfileLiked from './profile-liked-products/ProfileLiked';
 export default function Profile(){
     let {id, email} = useContext(AuthContext);
     let [cars,setCars] = useState({listed:[],liked:[]});
+    let [loading, setIsLoading] = useState(true);
     useEffect(()=> {
         async function getCreatedCars(){
             let listed = await getAllCreatedCarsByUser(id);
             let liked = await getAllLikedCarsByUser(id);
             setCars({listed:listed, liked:liked});
+            setIsLoading(false);
         }
         getCreatedCars();
     },[])
-    console.log(cars.liked);
     return(
+        loading == true 
+        ?
+        <main className={styles.main}>
+        <div className={styles["profile-container"]}>
+            <div className={styles['profile-info']}>
+                <div className={styles["profile-picture"]}>
+                    <img src="/images/profile-circle-icon-2048x2048-cqe5466q.png" alt="Profile Picture"></img>
+                </div>
+                <div className={styles["profile-email"]}>
+                    <label>Email:</label>
+                    <span style={{color:'black'}}><strong>{email}</strong></span>
+                </div>
+            </div>
+        </div>
+        <div className={styles["products-container"]}>
+            <section className={styles["product-section"]}>
+                <h2>Listed Products</h2>
+                <div className={styles["loader"]}></div>
+                </section>
+            <section className={styles["product-section"]}>
+                <h2>Liked Products</h2>
+                <div className={styles["loader"]}></div>
+                </section>
+        </div>
+        </main>
+
+        :
         <main className={styles.main}>
         <div className={styles["profile-container"]}>
             <div className={styles['profile-info']}>
