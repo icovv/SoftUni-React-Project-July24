@@ -2,18 +2,12 @@ import { useEffect, useState } from 'react'
 import styles from './Catalog.module.css'
 import { getAllCars } from '../../api/carsService';
 import CatalogItem from './catalog-single-item/CatalogItem';
+import fetchCatalogData from './catalog-single-item/fetchCatalogData';
 
 export default function Catalog(){
-    let [cars,setCars] = useState([]);
-    let [loading, setIsLoading] = useState(true);
-    useEffect(() => {
-        async function getCars(){
-            let data = await getAllCars();
-            setCars(data);
-            setIsLoading(false);
-        }
-        getCars();
-    },[]);
+
+    let {loading,cars} = fetchCatalogData()
+    
     return(
         loading == true
         ?
