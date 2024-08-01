@@ -1,6 +1,6 @@
 import useForm from '../../hooks/useForm'
+import useHandleSubmit from '../../hooks/useHandleSubmit';
 import styles from './List.module.css'
-import handleSubmit from './handleSubmit';
 
 export default function List() {
     let { value, changeHandler } = useForm('create', {
@@ -14,7 +14,7 @@ export default function List() {
         image: "",
         description: "",
     });
-    let {err,submitHandler, divKill} = handleSubmit(value);
+    let {err,listSubmitHandler, divKill} = useHandleSubmit(value);
    
 
     return (
@@ -29,7 +29,7 @@ export default function List() {
             </div>
             <div className={styles["form-container"]}>
                 <h1 className={styles.header}>List your Car</h1>
-                <form id="create-item-form" onSubmit={submitHandler}>
+                <form id="create-item-form" onSubmit={listSubmitHandler}>
                     <div className={styles['form-group']}>
                         <label htmlFor="car-brand">Car Brand</label>
                         <input type="text" id="brand" name="brand" value={value.brand || ``} onChange={changeHandler} required ></input>
