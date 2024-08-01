@@ -8,7 +8,7 @@ export default function Login(){
     let {loginHandler} = useContext(AuthContext);
     let [err, setErr] = useState([]);
     let navigate = useNavigate();
-    let {value,changeHandler,} = useForm('login',{
+    let {value,changeHandler, changeValues} = useForm('login',{
         email:'',
         password:''
     })
@@ -16,10 +16,9 @@ export default function Login(){
     let submitHandler = async (e) => {
         e.preventDefault();
         if (value.email.trim() == '' || value.password.trim() == ''){
-            changeHandler(e,[{message:"All fields are required!"}]);
+            changeValues({ email: value.email, password:'',})
             setErr([{message:"All fields are required!"}])
             return;
-            // return alert('All fields are required!');
         }
         let {email, password} = value
 
@@ -28,7 +27,7 @@ export default function Login(){
 
         let data =  await loginHandler(email,password);
         if (data.message){
-            changeHandler(e,[{message:data.message}]);
+            changeValues({ email: value.email, password:'',})
             setErr([{message:data.message}])
             return;
             // return alert(data.message);

@@ -2,12 +2,13 @@ import { useContext, useState } from 'react';
 import useForm from '../../hooks/useForm'
 import styles from './Register.module.css'
 import AuthContext from '../../context/AuthContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Register(){
     let {registerHandler} = useContext(AuthContext)
     let [err,setErr] = useState([]);
-    let {value, changeHandler,} = useForm("register", {
+    let navigate = useNavigate();
+    let {value, changeHandler, changeValues} = useForm("register", {
         email:'',
         password:'',
         repass:'',
@@ -36,6 +37,7 @@ export default function Register(){
 
         if(errs.length > 0){
             changeHandler(e,errs);
+            changeValues({email: value.email, password:'', repass : ''})
             setErr(errs);
             return;
         }
@@ -47,7 +49,7 @@ export default function Register(){
         let data = await registerHandler(email,password);
 
         if (data.message){
-            changeHandler(e,[{message:data.message}]);
+            changeValues({email: value.email, password:'', repass : ''})
             setErr([{message:data.message}])
             return;
         }

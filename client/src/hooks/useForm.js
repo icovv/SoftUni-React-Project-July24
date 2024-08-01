@@ -2,22 +2,7 @@ import { useState} from "react"
 
 export default function useForm(formType,initialValue){
     let [value,setValue] = useState(initialValue);
-    let changeHandler = (e,err) => {
-        if (!!err){
-        if (formType == 'register' && err.length > 0){
-            setValue(state => ({
-                email: value.email,
-                password:'',
-                repass : ''
-            }))
-        }
-        if (formType == 'login' && err.length > 0){
-            setValue(state => ({
-                email: value.email,
-                password:'',
-            }))
-        }
-        }
+    let changeHandler = (e) => {
         setValue(state => ({
             ...state,
             [e.target.name]: e.target.value,

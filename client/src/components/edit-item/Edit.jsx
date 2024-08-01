@@ -8,6 +8,17 @@ export default function List() {
     let {itemID} = useParams();
     let [err, setErr] = useState([]);
     let navigate = useNavigate();
+    let {value,changeHandler,changeValues} = useForm('edit', {
+        brand: '',
+        year: '',
+        model: '',
+        capacity: '',
+        power: '',
+        fuel: '',
+        color: '',
+        image: '',
+        description: '',
+    })
     useEffect(() => {
         async function getItem(){
             let data = await getOneCar(itemID);
@@ -26,17 +37,7 @@ export default function List() {
         }
         getItem();
     },[])
-    let {value,changeHandler,changeValues} = useForm('edit', {
-        brand: '',
-        year: '',
-        model: '',
-        capacity: '',
-        power: '',
-        fuel: '',
-        color: '',
-        image: '',
-        description: '',
-    })
+
 
     let submitHandler = async (e) => {
         e.preventDefault();
