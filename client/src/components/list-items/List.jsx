@@ -3,7 +3,7 @@ import useHandleSubmit from '../../hooks/useHandleSubmit';
 import styles from './List.module.css'
 
 export default function List() {
-    let { value, changeHandler } = useForm('create', {
+    let { value, changeHandler } = useForm({
         brand: "",
         year: "",
         model: "",

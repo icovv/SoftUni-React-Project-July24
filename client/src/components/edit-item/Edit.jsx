@@ -6,7 +6,7 @@ import useHandleSubmit from '../../hooks/useHandleSubmit';
 
 export default function List() {
     let {itemID} = useParams();
-    let {value,changeHandler,changeValues} = useForm('edit', {
+    let {value,changeHandler,changeValues} = useForm({
         brand: '',
         year: '',
         model: '',

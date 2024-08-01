@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react"
 import styles from "./Search.module.css"
 import SearchItem from "./search-single-item/SearchItem";
-import { getAllCars, getCertainCar } from "../../api/carsService";
 import fetchSearchData from "./fetchSearchData";
 import useForm from "../../hooks/useForm";
 import useHandleSubmit from "../../hooks/useHandleSubmit";

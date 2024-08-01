@@ -7,11 +7,12 @@ import useHandleSubmit from "../../hooks/useHandleSubmit";
 
 export default function Login(){
     let {loginHandler} = useContext(AuthContext);
-    let {value,changeHandler, changeValues} = useForm('login',{
+    let {value,changeHandler, changeValues} = useForm({
         email:'',
         password:''
     })
-    let {err,loginSubmitHandler,divKill} = useHandleSubmit(value,null,changeValues,loginHandler);
+    let {err,loginSubmitHandler,divKill} = useHandleSubmit(value,null,changeValues,loginHandler,null); 
+    // value,null,changeValues,loginHandler
 
     return(
         <main className={styles["main"]}>
@@ -27,9 +28,9 @@ export default function Login(){
             <h1>Login Form</h1>
             <form className={styles["form"]} onSubmit={loginSubmitHandler}>
                 <label className={styles["label"]}>Email</label>
-                <input className={styles["input"]} type="text" name="email" value={value.email} onChange={changeHandler}></input>
+                <input className={styles["input"]} type="text" name="email" value={value.email || ''} onChange={changeHandler}></input>
                 <label className={styles["label"]}>Password</label>
-                <input className={styles["input"]} type="password" name="password" value={value.password} onChange={changeHandler}></input>
+                <input className={styles["input"]} type="password" name="password" value={value.password || ''} onChange={changeHandler}></input>
                 <input className={styles["input"]} type="submit" value="Submit"></input>
             </form>
         </div>

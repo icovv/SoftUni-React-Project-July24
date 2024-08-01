@@ -1,24 +1,15 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext} from 'react'
 import styles from './Profile.module.css'
 import AuthContext from '../../context/AuthContext'
 import ProfileListed from './profile-listed-products/ProfileListed';
-import { getAllCreatedCarsByUser, getAllLikedCarsByUser } from '../../api/carsService';
 import ProfileLiked from './profile-liked-products/ProfileLiked';
+import fetchProfileData from './fetchProfileData';
 
 
 export default function Profile(){
     let {id, email} = useContext(AuthContext);
-    let [cars,setCars] = useState({listed:[],liked:[]});
-    let [loading, setIsLoading] = useState(true);
-    useEffect(()=> {
-        async function getCreatedCars(){
-            let listed = await getAllCreatedCarsByUser(id);
-            let liked = await getAllLikedCarsByUser(id);
-            setCars({listed:listed, liked:liked});
-            setIsLoading(false);
-        }
-        getCreatedCars();
-    },[])
+
+    let {cars,loading} = fetchProfileData(id);
     return(
         loading == true 
         ?

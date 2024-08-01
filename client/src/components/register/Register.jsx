@@ -1,14 +1,14 @@
-import { useContext, useState } from 'react';
+import { useContext} from 'react';
 import useForm from '../../hooks/useForm'
 import styles from './Register.module.css'
 import AuthContext from '../../context/AuthContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import useHandleSubmit from '../../hooks/useHandleSubmit';
 
 export default function Register(){
     let {registerHandler} = useContext(AuthContext)
 
-    let {value, changeHandler, changeValues} = useForm("register", {
+    let {value, changeHandler, changeValues} = useForm({
         email:'',
         password:'',
         repass:'',

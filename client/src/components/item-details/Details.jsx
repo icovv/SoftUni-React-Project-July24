@@ -1,51 +1,19 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext,} from 'react'
 import styles from './Details.module.css'
-import { addLikesToCar, deleteCar, deleteCarLikes, getCertainCarLikes, getOneCar, hasUserLiked, removeLikeFromCar } from '../../api/carsService';
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import {useParams, Link } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
+import fetchDetailsData from './fetchDetailsData';
+import handlers from './handlers';
 
 export default function Details() {
     let { itemID } = useParams();
-    let { id, isAuthenticated } = useContext(AuthContext);
-    let [item, setItem] = useState({});
-    let [likes, setLikes] = useState({});
-    let [isOwner, setisOwner] = useState(false);
-    let [hasLiked, setHasLiked] = useState(``);
-    let [loading,setIsLoading] = useState(true);
-    let navigate = useNavigate();
-    useEffect(() => {
-        async function getItem() {
-            let data = await getOneCar(itemID);
-            let likesData = await getCertainCarLikes(itemID);
-            let hasUserLikedCar = await hasUserLiked(id,itemID);
-            setLikes(likesData);
-            setItem(data);
-            setHasLiked(hasUserLikedCar);
-            if (id == data._ownerId) {
-                setisOwner(true);
-            }
-            setIsLoading(false);
-        }
-        getItem();
-    }, [])
 
-    let deleteItem = async () => {
-        if (confirm('Are you sure you want to delete this car?')) {
-            await deleteCar(itemID);
-            await deleteCarLikes(itemID);
-            navigate('/catalog')
-        };
-    }   
-    let likeItem = async () => {
-            let data = await addLikesToCar(itemID,id)
-            setLikes(data);
-            setHasLiked(true);
-    }
-    let dislikeItem = async () => {
-            let data = await removeLikeFromCar(itemID,id);
-            setLikes(data);
-            setHasLiked(false);
-    }
+    let { id, isAuthenticated } = useContext(AuthContext);
+
+    let {item,likes,isOwner,hasLiked,loading, likeSetter, hasLikedSetter} = fetchDetailsData(id, itemID)
+
+    let {deleteItem,likeItem,dislikeItem} = handlers(itemID,id,likeSetter,hasLikedSetter)
+
     return (
         loading == true 
         ?
