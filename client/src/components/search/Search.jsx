@@ -2,38 +2,27 @@ import { useEffect, useState } from "react"
 import styles from "./Search.module.css"
 import SearchItem from "./search-single-item/SearchItem";
 import { getAllCars, getCertainCar } from "../../api/carsService";
+import fetchSearchData from "./fetchSearchData";
+import useForm from "../../hooks/useForm";
+import useHandleSubmit from "../../hooks/useHandleSubmit";
 
 export default function Search() {
-    let [data, setData] = useState([]);
-    let [loading,setIsLoading] = useState(true);
-    let [value,setValue] = useState(``);
-    useEffect(()=> {
-        async function takeInitialData(){
-           let data = await getAllCars();
-            setData(data);
-            setIsLoading(false);
-        }
-        takeInitialData();
+    let {value,changeHandler, changeValues} = useForm({
+        search: ``
+    })
 
-    }, [])
-    let changeHandler = (e) => {
-        setValue([e.target.name] = e.target.value);
-    }
-    let submitHandler = async (e) => {
-        e.preventDefault();
-            let result = await getCertainCar(value);
-            setData(result);
-            setValue(``);
+    let {loading,data, dataSetter} = fetchSearchData()
 
-    }
+    let {searchSubmitHandler} = useHandleSubmit(value,null,changeValues,null,dataSetter);
+
     return (
         loading == true 
         ?
         <div className={styles["loader"]}></div>
         :
         <main>
-            <form className={styles['example']} onSubmit={submitHandler}>
-                <input type="text" placeholder="Search.." name="search" value={value} onChange={changeHandler}></input>
+            <form className={styles['example']} onSubmit={searchSubmitHandler}>
+                <input type="text" placeholder="Search.." name="search" value={value.search || ''} onChange={changeHandler}></input>
                 <button type="submit" className={styles['button']} >Search</button>
               </form>
             

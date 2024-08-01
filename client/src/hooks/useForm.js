@@ -1,7 +1,8 @@
 import { useState} from "react"
 
-export default function useForm(formType,initialValue){
+export default function useForm(initialValue){
     let [value,setValue] = useState(initialValue);
+    
     let changeHandler = (e) => {
         setValue(state => ({
             ...state,

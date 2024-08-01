@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {createLikesForCar, editItem, listItem } from '../api/carsService'
+import {createLikesForCar, editItem, getCertainCar, listItem } from '../api/carsService'
 import useErrorHandler from "./useErrorsHandler";
 
-export default function useHandleSubmit(value, itemID,changeValues, handler){
+export default function useHandleSubmit(value, itemID,changeValues, handler, dataSetter){
         let [err, setErr] = useState([]);
         let navigate = useNavigate();
     
@@ -105,6 +105,15 @@ export default function useHandleSubmit(value, itemID,changeValues, handler){
             
             navigate('/')
         }
+
+        let searchSubmitHandler = async (e) => {
+            e.preventDefault();
+
+            let result = await getCertainCar(value.search);
+            dataSetter(result);
+            changeValues({search:``});
+    
+        }
     
         let divKill = (e) => {
             setErr([]);
@@ -116,6 +125,7 @@ export default function useHandleSubmit(value, itemID,changeValues, handler){
             ediSubmitHandler,
             loginSubmitHandler,
             registerSubmitHandler,
+            searchSubmitHandler,
             divKill
         }
     }
