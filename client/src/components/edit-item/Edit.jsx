@@ -1,8 +1,9 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import styles from './Edit.module.css'
-import { useEffect, useState } from 'react';
-import { editItem, getOneCar } from '../../api/carsService';
+import { useState } from 'react';
+import { editItem } from '../../api/carsService';
+import fetchEditData from './fetchEditData';
 
 export default function List() {
     let {itemID} = useParams();
@@ -19,24 +20,7 @@ export default function List() {
         image: '',
         description: '',
     })
-    useEffect(() => {
-        async function getItem(){
-            let data = await getOneCar(itemID);
-            changeValues({
-                brand: data.carBrand,
-                year: data.year,
-                model: data.carModel,
-                capacity: data.engineCapacity,
-                power: data.horsePower,
-                fuel: data.fuelType,
-                color: data.color,
-                image: data.imageURL,
-                description: data.description,
-            });
-            console.log(data);
-        }
-        getItem();
-    },[])
+    fetchEditData(itemID, changeValues);
 
 
     let submitHandler = async (e) => {
