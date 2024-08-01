@@ -1,42 +1,17 @@
-import { useContext, useState } from "react"
+import { useContext, } from "react"
 import useForm from "../../hooks/useForm"
 import styles from "./Login.module.css"
 import AuthContext from "../../context/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, } from "react-router-dom";
+import useHandleSubmit from "../../hooks/useHandleSubmit";
 
 export default function Login(){
     let {loginHandler} = useContext(AuthContext);
-    let [err, setErr] = useState([]);
-    let navigate = useNavigate();
     let {value,changeHandler, changeValues} = useForm('login',{
         email:'',
         password:''
     })
-
-    let submitHandler = async (e) => {
-        e.preventDefault();
-        if (value.email.trim() == '' || value.password.trim() == ''){
-            changeValues({ email: value.email, password:'',})
-            setErr([{message:"All fields are required!"}])
-            return;
-        }
-        let {email, password} = value
-
-        email.trim();
-        password.trim();
-
-        let data =  await loginHandler(email,password);
-        if (data.message){
-            changeValues({ email: value.email, password:'',})
-            setErr([{message:data.message}])
-            return;
-            // return alert(data.message);
-        }
-        navigate('/')
-    }
-    let divKill = (e) => {
-        setErr([]);
-    }
+    let {err,loginSubmitHandler,divKill} = useHandleSubmit(value,null,changeValues,loginHandler);
 
     return(
         <main className={styles["main"]}>
@@ -50,7 +25,7 @@ export default function Login(){
             </div>
         <div className={styles["login-form"]}>
             <h1>Login Form</h1>
-            <form className={styles["form"]} onSubmit={submitHandler}>
+            <form className={styles["form"]} onSubmit={loginSubmitHandler}>
                 <label className={styles["label"]}>Email</label>
                 <input className={styles["input"]} type="text" name="email" value={value.email} onChange={changeHandler}></input>
                 <label className={styles["label"]}>Password</label>

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {createLikesForCar, editItem, listItem } from '../api/carsService'
 import useErrorHandler from "./useErrorsHandler";
 
-export default function useHandleSubmit(value, itemID){
+export default function useHandleSubmit(value, itemID,changeValues, handler){
         let [err, setErr] = useState([]);
         let navigate = useNavigate();
     
@@ -44,6 +44,67 @@ export default function useHandleSubmit(value, itemID){
             }
             navigate(`/catalog/details/${itemID}`);
         }
+
+        let loginSubmitHandler = async (e) => {
+            e.preventDefault();
+            if (value.email.trim() == '' || value.password.trim() == ''){
+                changeValues({ email: value.email, password:'',})
+                setErr([{message:"All fields are required!"}])
+                return;
+            }
+            let {email, password} = value
+    
+            email.trim();
+            password.trim();
+    
+            let data =  await handler(email,password);
+            if (data.message){
+                changeValues({ email: value.email, password:'',})
+                setErr([{message:data.message}])
+                return;
+            }
+            navigate('/')
+        }
+
+        let registerSubmitHandler = async (e) => {
+            e.preventDefault();
+            let pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
+            let errs = [];
+
+            if (value.email.trim() == '' || value.password.trim() == ''){
+                errs.push({message:"All fields are required!"})
+            }
+            if(!pattern.test(value.email.trim())){
+                errs.push({message:"You have to type a valid email!"})
+            }
+            if(value.password.trim().length < 4){
+                errs.push({message:'Your password must be at least 4 symbols long!'})
+            }
+            if(value.password.trim() != value.repass.trim()){
+                errs.push({message:'Your passwords should match!'})
+            }
+    
+            if(errs.length > 0){
+                changeValues({email: value.email, password:'', repass : ''})
+                setErr(errs);
+                return;
+            }
+            let {email,password} = value;
+    
+            email.trim();
+            password.trim();
+    
+            let data = await handler(email,password);
+    
+            if (data.message){
+                changeValues({email: value.email, password:'', repass : ''})
+                setErr([{message:data.message}])
+                return;
+            }
+    
+            
+            navigate('/')
+        }
     
         let divKill = (e) => {
             setErr([]);
@@ -53,6 +114,8 @@ export default function useHandleSubmit(value, itemID){
             err,
             listSubmitHandler,
             ediSubmitHandler,
+            loginSubmitHandler,
+            registerSubmitHandler,
             divKill
         }
     }
