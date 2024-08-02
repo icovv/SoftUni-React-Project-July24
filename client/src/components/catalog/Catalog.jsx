@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react'
 import styles from './Catalog.module.css'
-import { getAllCars } from '../../api/carsService';
 import CatalogItem from './catalog-single-item/CatalogItem';
-import fetchCatalogData from './catalog-single-item/fetchCatalogData';
+import fetchCatalogData from './fetchCatalogData';
 
 export default function Catalog(){
 

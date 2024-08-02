@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllCars } from "../../../api/carsService";
+import { getAllCars } from "../../api/carsService";
 
 export default function fetchCatalogData(){
     let [cars,setCars] = useState([]);
