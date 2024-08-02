@@ -15,6 +15,7 @@ import {AuthProvider} from '../src/context/AuthContext';
 import AuthGuard from './guards/AuthGuard'
 import LoggedInGuard from './guards/LoggedInGuard'
 import Logout from './components/logout/Logout'
+import NotFound from './components/notFound/NotFound'
 function App() {
 
   return (
@@ -41,6 +42,8 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         </Route>
+
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
 
     <Footer></Footer>

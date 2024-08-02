@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { getCertainCarLikes, getOneCar, hasUserLiked } from "../../api/carsService";
+import { useNavigate } from "react-router-dom";
 
 export default function fetchDetailsData(id,itemID){
+    let navigate = useNavigate()
     let [item, setItem] = useState({});
     let [likes, setLikes] = useState({});
     let [isOwner, setisOwner] = useState(false);
@@ -17,6 +19,10 @@ export default function fetchDetailsData(id,itemID){
     useEffect(() => {
         async function getItem() {
             let data = await getOneCar(itemID);
+            if (data.code == 404){
+                navigate('*');
+                return;
+            }
             let likesData = await getCertainCarLikes(itemID);
             let hasUserLikedCar = await hasUserLiked(id,itemID);
             setLikes(likesData);
