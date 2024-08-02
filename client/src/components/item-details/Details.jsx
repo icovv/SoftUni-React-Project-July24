@@ -46,7 +46,7 @@ export default function Details() {
                         isAuthenticated 
                         ?
                         hasLiked ?
-                            <button className={styles["like-btn"]} onClick={dislikeItem}>Dislike</button>
+                            <button className={styles["like-btn"]} onClick={dislikeItem}>Unlike</button>
                             :
                             <button className={styles["like-btn"]} onClick={likeItem}>Like</button>
                             :
