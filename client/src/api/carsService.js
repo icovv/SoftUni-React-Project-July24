@@ -4,16 +4,24 @@ export async function getAllCars() {
     return await get("http://localhost:3030/data/cars");
 }
 
-export async function getCertainCar(brand) {
-    brand = brand.toLowerCase()
-    let data = await getAllCars();
-    let result = []
-    for (let item of data) {
-        let searchItem = item.carBrand.toLowerCase();
-        if (searchItem.includes(brand)) {
-            result.push(item);
-        }
+export async function getCertainCar(searchParam,dropdown) {
+    if (dropdown == `carModel` || dropdown == 'carBrand'){
+    searchParam = searchParam.toLowerCase();
     }
+    let data = await getAllCars();
+    let result = [];
+    if (searchParam == ``){
+        return data;
+    } else if (dropdown == `carModel`){
+        result = data.filter(car => car.carModel.toLowerCase().includes(searchParam.toLowerCase()))
+    } else if (dropdown == `carBrand`){
+        result = data.filter(car => car.carBrand.toLowerCase().includes(searchParam.toLowerCase()))
+    } else if (dropdown == `horsePowerMore`){
+        result = data.filter(car => car.horsePower >= Number(searchParam))
+    } else if (dropdown == `horsePowerLess`){
+        result = data.filter(car => car.horsePower <= Number(searchParam))
+    }
+
     return result;
 }
 

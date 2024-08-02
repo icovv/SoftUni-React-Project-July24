@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {createLikesForCar, editItem, getCertainCar, listItem } from '../api/carsService'
 import useErrorHandler from "./useErrorsHandler";
 
-export default function useHandleSubmit(value, itemID,changeValues, handler, dataSetter){
+export default function useHandleSubmit(value, itemID,changeValues, handler, dataSetter,isLoadingChanger){
         let [err, setErr] = useState([]);
         let navigate = useNavigate();
     
@@ -108,11 +108,32 @@ export default function useHandleSubmit(value, itemID,changeValues, handler, dat
 
         let searchSubmitHandler = async (e) => {
             e.preventDefault();
+            let search = value.search.trim();
+            let dropdown = value.dropdown.trim()
 
-            let result = await getCertainCar(value.search);
+            let pattern = /\d+/
+            if (dropdown == ``){
+                setErr([{message: 'Please select search criteria!'}]);
+                return;
+            }
+            if (!pattern.test(search) && dropdown == `horsePowerLess`){
+                setErr([{message: 'Please provide valid horse power!'}]);
+                return;
+            }
+            if (!pattern.test(search) && dropdown == `horsePowerMore`){
+                setErr([{message: 'Please provide valid horse power!'}]);
+                return;
+            }
+            if (pattern.test(search) && dropdown == `carModel`){
+                setErr([{message: 'Please provide valid car model!'}]);
+                return;
+            }
+            if (pattern.test(search) && dropdown == `carBrand`){
+                setErr([{message: 'Please provide valid car brand!'}]);
+                return;
+            }
+            let result = await getCertainCar(search,dropdown);
             dataSetter(result);
-            changeValues({search:``});
-    
         }
     
         let divKill = (e) => {
