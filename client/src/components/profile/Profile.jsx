@@ -27,11 +27,11 @@ export default function Profile(){
         </div>
         <div className={styles["products-container"]}>
             <section className={styles["product-section"]}>
-                <h2>Listed Products</h2>
+                <h2>Listed Cars</h2>
                 <div className={styles["loader"]}></div>
                 </section>
             <section className={styles["product-section"]}>
-                <h2>Liked Products</h2>
+                <h2>Liked Cars</h2>
                 <div className={styles["loader"]}></div>
                 </section>
         </div>
@@ -52,7 +52,7 @@ export default function Profile(){
         </div>
         <div className={styles["products-container"]}>
             <section className={styles["product-section"]}>
-                <h2>Listed Products</h2>
+                <h2>Listed Cars</h2>
                 {cars.listed.length >0
                 ? 
                 cars.listed.map(item =><ProfileListed key={item._id} car = {item}></ProfileListed>)
@@ -61,7 +61,7 @@ export default function Profile(){
                 }
             </section>
             <section className={styles["product-section"]}>
-                <h2>Liked Products</h2>
+                <h2>Liked Cars</h2>
                 {cars.liked.length>0
                 ?
                 cars.liked.map(item => <ProfileLiked key={item.carID} carID = {item.carID}></ProfileLiked>)

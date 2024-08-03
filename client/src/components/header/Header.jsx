@@ -14,7 +14,7 @@ export default function Header() {
                     <ul className={styles.Menu}>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/catalog">Catalog</Link></li>
-                        <li><Link to="/listItem">List new Item</Link></li>
+                        <li><Link to="/listItem">List Your Car</Link></li>
                         <li><Link to="/search">Search</Link></li>
                         <li><Link to="/profile">Profile</Link></li>
                         <li><Link to='/contacts'>Contacts</Link></li>
