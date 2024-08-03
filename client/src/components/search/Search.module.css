@@ -131,8 +131,8 @@
 
 .error-container {
   position: fixed;
-  top: 1em;
-  right: 51em;
+  top: 3em;
+  right: 70em;
   width: 300px;
   z-index: 1000;
   display: flex;
