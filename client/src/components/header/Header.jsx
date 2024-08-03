@@ -17,6 +17,7 @@ export default function Header() {
                         <li><Link to="/listItem">List new Item</Link></li>
                         <li><Link to="/search">Search</Link></li>
                         <li><Link to="/profile">Profile</Link></li>
+                        <li><Link to='/contacts'>Contacts</Link></li>
                         <li><Link to="/logout">Logout</Link></li>
                     </ul>
                     :
@@ -24,6 +25,7 @@ export default function Header() {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/catalog">Catalog</Link></li>
                         <li><Link to="/search">Search</Link></li>
+                        <li><Link to='/contacts'>Contacts</Link></li>
                         <li><Link to="/register">Register</Link></li>
                         <li><Link to="/login">Login</Link></li>
                     </ul>

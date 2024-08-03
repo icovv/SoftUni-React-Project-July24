@@ -16,6 +16,7 @@ import AuthGuard from './guards/AuthGuard'
 import LoggedInGuard from './guards/LoggedInGuard'
 import Logout from './components/logout/Logout'
 import NotFound from './components/notFound/NotFound'
+import Contacts from './components/contacts/Contacts'
 function App() {
 
   return (
@@ -28,6 +29,7 @@ function App() {
 
         <Route path='/catalog' element={<Catalog></Catalog>}></Route>
         <Route path='/catalog/details/:itemID' element={<Details></Details>}></Route>
+        <Route path='/contacts' element={<Contacts></Contacts>}></Route>
 
         <Route element= {<AuthGuard></AuthGuard>}>
         <Route path='/catalog/details/edit/:itemID' element={<Edit></Edit>}></Route>
