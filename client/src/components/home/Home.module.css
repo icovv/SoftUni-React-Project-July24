@@ -8,8 +8,8 @@
     margin-bottom: 15px;
     text-align: center;
     color: white;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 1.5em;
+    margin-right: 1em;
   }
   
   .home-text p {
@@ -26,8 +26,8 @@
     font-size: 30px;
     /* height: 30px;
     width: 150px; */
-    margin-top: 80px;
-    margin-left: 43%;
+    margin-top: 3em;
+    margin-left: 45%;
     text-decoration: none;
     padding: 15px 30px;
     border-radius: 30px;

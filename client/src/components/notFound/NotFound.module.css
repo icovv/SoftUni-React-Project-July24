@@ -2,13 +2,13 @@
 .container {
     max-width: 600px;
     padding: 2em;
-    margin-left: 500px;
+    margin-left: 55em;
 }
 
 .errorImage {
     width: 50%;
-    max-width: 300px;
-    margin-left: 630px;
+    max-width: 600px;
+    margin-left: 54em;
     margin-top: 100px;
     height: auto;
     margin-bottom: 1em;

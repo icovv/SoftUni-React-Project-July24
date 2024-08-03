@@ -48,7 +48,7 @@ export default function Search() {
                     ?
                     data.map(item => <SearchItem key={item._id} car={item}></SearchItem>)
                     :
-                    <h2 style={{ marginLeft: "490px", marginTop: "150px", fontSize: "30px" }}>There are no such cars currently</h2>
+                   <h2 style={{ marginLeft: "22em", marginTop: "5em", fontSize: "30px" }}>There are no such cars currently</h2>
                 }
             </main>
     )

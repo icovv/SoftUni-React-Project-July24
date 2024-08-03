@@ -16,8 +16,8 @@ export default function Catalog(){
         {cars.length > 0 
         ?
         cars.map(car => <CatalogItem key={car._id} car={car} ></CatalogItem>)
-        :
-        <h2 style={{marginLeft: "640px",marginTop:"200px"}}>There are no listed items</h2>
+        : 
+        <h2 style={{marginLeft: "46em",marginTop:"10em"}}>There are no listed items</h2>
         }
         </main>
     )
