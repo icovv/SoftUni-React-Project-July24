@@ -42,7 +42,7 @@ The server is Softuni`s practise server. Read more about it [HERE](https://githu
 
 The following adaptations have been made in regards to this project -> <br/> <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - A data collection has been created in order to use the authentication <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - A json store collection has been created for the likes section <br/> <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - A json store collection has been created for the likes <br/> <br/>
 The server has cars and their likes as pre seeded data and the three users listed in the Softuni practise server github repository <br/>
 <br/>
 The three cars are:<br/> 
