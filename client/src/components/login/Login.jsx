@@ -35,7 +35,7 @@ export default function Login(){
             </form>
         </div>
         <div className={styles["no-acc-box"]}>
-            <h1 className={styles["no-acc"]}>New to our store?<Link to="/register" className={styles["anchr"]}>Register here</Link> </h1>
+            <h1 className={styles["no-acc"]}>New to our site?<Link to="/register" className={styles["anchr"]}>Register here</Link> </h1>
         </div>
     </main>
     )
