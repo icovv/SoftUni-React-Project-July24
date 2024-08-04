@@ -1,7 +1,11 @@
-export async function requester(method,url,data){
+export async function requester(method,url,data,admin){
     let options ={
         method,
         headers: {}
+    }
+    if(admin){
+        options.headers['X-Admin'] = ``;
+        console.log(`admin Added`)
     }
     if (data){
         options.headers["Content-Type"] = `application/json`;
@@ -36,11 +40,11 @@ export async function requester(method,url,data){
 export async function get(url){
     return await requester(`Get`,url);
 }
-export async function post(url,data){
-    return await requester(`POST`,url,data);
+export async function post(url,data,admin){
+    return await requester(`POST`,url,data,admin);
 }
-export async function put(url,data){
-    return await requester(`PUT`,url,data);
+export async function put(url,data,admin){
+    return await requester(`PUT`,url,data,admin);
 }
 export async function del(url){
     return await requester(`Delete`,url);

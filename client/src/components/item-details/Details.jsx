@@ -13,7 +13,6 @@ export default function Details() {
     let {item,likes,isOwner,hasLiked,loading, likeSetter, hasLikedSetter} = useFetchDetailsData(id, itemID)
 
     let {deleteItem,likeItem,dislikeItem} = handlers(itemID,id,likeSetter,hasLikedSetter)
-
     return (
         loading == true 
         ?
@@ -53,7 +52,7 @@ export default function Details() {
                             <></>
                         }
                     </div>
-                        <p style={{ color: "#857776", marginTop: "30px" }}> Current Number of Likes: {likes.likesCounter ? likes.likesCounter.length : ''} </p>
+                        <p style={{ color: "#857776", marginTop: "30px" }}> Current Number of Likes: {likes.length} </p>
                 </div>
             </div>
         </main>

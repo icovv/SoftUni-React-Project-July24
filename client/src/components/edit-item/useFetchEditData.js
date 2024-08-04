@@ -16,6 +16,7 @@ export default function useFetchEditData(itemID, changeValues){
                 year: data.year,
                 model: data.carModel,
                 capacity: data.engineCapacity,
+                likes: data.likes,
                 power: data.horsePower,
                 fuel: data.fuelType,
                 color: data.color,

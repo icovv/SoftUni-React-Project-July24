@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getCertainCarLikes, getOneCar, hasUserLiked } from "../../api/carsService";
+import { getOneCar, } from "../../api/carsService";
 import { useNavigate } from "react-router-dom";
 
 export default function useFetchDetailsData(id,itemID){
@@ -23,9 +23,8 @@ export default function useFetchDetailsData(id,itemID){
                 navigate('*');
                 return;
             }
-            let likesData = await getCertainCarLikes(itemID);
-            let hasUserLikedCar = await hasUserLiked(id,itemID);
-            setLikes(likesData);
+            let hasUserLikedCar = data.likes.includes(id) ? true : false;
+            setLikes(data.likes);
             setItem(data);
             setHasLiked(hasUserLikedCar);
             if (id == data._ownerId) {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {createLikesForCar, editItem, getCertainCar, listItem } from '../api/carsService'
+import {editItem, getCertainCar, listItem } from '../api/carsService'
 import useErrorHandler from "./useErrorsHandler";
 
 export default function useHandleSubmit(value, itemID,changeValues, handler, dataSetter,isLoadingChanger){
@@ -9,34 +9,32 @@ export default function useHandleSubmit(value, itemID,changeValues, handler, dat
     
         let listSubmitHandler = async (e) => {
             e.preventDefault();
-
             let {errors,items} = useErrorHandler(value)
-
             if (errors.length > 0){
                 setErr(errors);
                 return;
             }
-            
+            items.likes = [];
             let response = await listItem(items);
             if(response.message){
                 setErr([{message: response.message}]);
                 return;
             }
-            await createLikesForCar(response._id, response._ownerId);
             navigate('/catalog');
     
         }
 
         let ediSubmitHandler = async (e) => {
             e.preventDefault();
-    
+            console.log(value);
             let {errors,items} = useErrorHandler(value)
-
+            
             if (errors.length > 0){
                 setErr(errors);
                 return;
             }
 
+            items.likes = value.likes;
             let response = await editItem(itemID,items)
             if (response.message){
                 setErr([{message:response.message}]);

@@ -11,6 +11,7 @@ export default function List() {
         year: '',
         model: '',
         capacity: '',
+        likes: [],
         power: '',
         fuel: '',
         color: '',
