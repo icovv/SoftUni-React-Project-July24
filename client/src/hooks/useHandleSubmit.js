@@ -15,6 +15,7 @@ export default function useHandleSubmit(value, itemID,changeValues, handler, dat
                 return;
             }
             items.likes = [];
+            isLoadingChanger(true);
             let response = await listItem(items);
             if(response.message){
                 setErr([{message: response.message}]);

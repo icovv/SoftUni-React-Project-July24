@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import useForm from '../../hooks/useForm'
 import useHandleSubmit from '../../hooks/useHandleSubmit';
 import styles from './List.module.css'
@@ -14,7 +15,9 @@ export default function List() {
         image: "",
         description: "",
     });
-    let {err,listSubmitHandler, divKill} = useHandleSubmit(value);
+    let [loading, setIsLoading] = useState(false);
+    let loadingFN = (value) => {setIsLoading(value)}
+    let {err,listSubmitHandler, divKill} = useHandleSubmit(value,null,null,null,null,loadingFN);
    
 
     return (
@@ -70,7 +73,7 @@ export default function List() {
                         <label htmlFor="description">Description</label>
                         <textarea id="description" name="description" rows="4" value={value.description || ``} onChange={changeHandler} required ></textarea>
                     </div>
-                    <button type="submit" className={styles.button}>List</button>
+                    <button type="submit" disabled={loading} className={styles.button}>List</button>
                 </form>
             </div>
 
