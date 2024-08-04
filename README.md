@@ -57,6 +57,6 @@ If you want to run the project, you have package.json file in the main client fo
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **npm start**<br/>
 <br/>
 In order to start the SPA Service you have to follow these two steps -> <br/><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Due to the hosting of the server, minor corrections were made. In order to start the server locally, you need firebase installed and after that open the server folder in your terminal and type **"firebase serve"**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Due to the hosting of the server, minor corrections were made. In order to start the server locally, you need firebase installed and after that open the server folder in your terminal and type **"firebase serve"** <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Open the client folder in your terminal, then type **"npm run dev"** <br/>
 
