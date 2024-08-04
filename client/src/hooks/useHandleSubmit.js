@@ -19,6 +19,7 @@ export default function useHandleSubmit(value, itemID,changeValues, handler, dat
             let response = await listItem(items);
             if(response.message){
                 setErr([{message: response.message}]);
+                isLoadingChanger(false);
                 return;
             }
             navigate('/catalog');
@@ -36,9 +37,12 @@ export default function useHandleSubmit(value, itemID,changeValues, handler, dat
             }
 
             items.likes = value.likes;
+
+            isLoadingChanger(true);
             let response = await editItem(itemID,items)
             if (response.message){
                 setErr([{message:response.message}]);
+                isLoadingChanger(false);
                 return;
             }
             navigate(`/catalog/details/${itemID}`);
@@ -55,11 +59,12 @@ export default function useHandleSubmit(value, itemID,changeValues, handler, dat
     
             email.trim();
             password.trim();
-    
+            isLoadingChanger(true);
             let data =  await handler(email,password);
             if (data.message){
                 changeValues({ email: value.email, password:'',})
                 setErr([{message:data.message}])
+                isLoadingChanger(false);
                 return;
             }
             navigate('/')
@@ -92,12 +97,13 @@ export default function useHandleSubmit(value, itemID,changeValues, handler, dat
     
             email.trim();
             password.trim();
-    
+            isLoadingChanger(true);
             let data = await handler(email,password);
     
             if (data.message){
                 changeValues({email: value.email, password:'', repass : ''})
                 setErr([{message:data.message}])
+                isLoadingChanger(true);
                 return;
             }
     

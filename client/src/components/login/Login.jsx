@@ -1,4 +1,4 @@
-import { useContext, } from "react"
+import { useContext, useState, } from "react"
 import useForm from "../../hooks/useForm"
 import styles from "./Login.module.css"
 import AuthContext from "../../context/AuthContext";
@@ -11,7 +11,9 @@ export default function Login(){
         email:'',
         password:''
     })
-    let {err,loginSubmitHandler,divKill} = useHandleSubmit(value,null,changeValues,loginHandler,null); 
+    let [loading, setIsLoading] = useState(false);
+    let loadingFN = (value) => {setIsLoading(value)}
+    let {err,loginSubmitHandler,divKill} = useHandleSubmit(value,null,changeValues,loginHandler,null,loadingFN); 
     // value,null,changeValues,loginHandler
 
     return(
@@ -31,7 +33,7 @@ export default function Login(){
                 <input className={styles["input"]} type="text" name="email" value={value.email || ''} onChange={changeHandler}></input>
                 <label className={styles["label"]}>Password</label>
                 <input className={styles["input"]} type="password" name="password" value={value.password || ''} onChange={changeHandler}></input>
-                <input className={styles["input"]} type="submit" value="Submit"></input>
+                <input className={styles["input"]} type="submit" value="Submit" disabled={loading}></input>
             </form>
         </div>
         <div className={styles["no-acc-box"]}>

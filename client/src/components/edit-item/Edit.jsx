@@ -1,8 +1,9 @@
-import { useParams } from 'react-router-dom'
+import { useParams, } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import styles from './Edit.module.css'
 import useFetchEditData from './useFetchEditData';
 import useHandleSubmit from '../../hooks/useHandleSubmit';
+import { useState } from 'react';
 
 export default function List() {
     let {itemID} = useParams();
@@ -18,9 +19,11 @@ export default function List() {
         image: '',
         description: '',
     })
+    let [loading, setIsLoading] = useState(false);
+    let loadingFN = (value) => {setIsLoading(value)}
     useFetchEditData(itemID, changeValues);
 
-    let {err,ediSubmitHandler, divKill} = useHandleSubmit(value, itemID);
+    let {err,ediSubmitHandler, divKill} = useHandleSubmit(value, itemID,null,null,null,loadingFN);
 
     return (
         <main className={styles.main}>
@@ -74,7 +77,7 @@ export default function List() {
                         <label htmlFor="description">Description</label>
                         <textarea id="description" name="description" value={value.description || ``} onChange={changeHandler} rows="4" required></textarea>
                     </div>
-                    <button type="submit" className={styles.button}>Edit</button>
+                    <button type="submit" className={styles.button} disabled={loading} >Edit</button>
                 </form>
             </div>
 

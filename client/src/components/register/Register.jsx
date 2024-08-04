@@ -13,8 +13,9 @@ export default function Register(){
         password:'',
         repass:'',
     });
-
-    let {err,registerSubmitHandler,divKill} = useHandleSubmit(value,null,changeValues,registerHandler);
+    let [loading, setIsLoading] = useState(false);
+    let loadingFN = (value) => {setIsLoading(value)}
+    let {err,registerSubmitHandler,divKill} = useHandleSubmit(value,null,changeValues,registerHandler,null,loadingFN);
     
     return(
         <main>
@@ -36,7 +37,7 @@ export default function Register(){
                     <input className={styles["register-form-input"]} type="password" name="password" value={value.password || ``} onChange={changeHandler} ></input>
                     <label className={styles["register-form-label"]}>Repeat Password</label>
                     <input className={styles["register-form-input"]} type="password" name="repass" value={value.repass || ``} onChange={changeHandler} ></input>
-                    <input className={styles["register-form-input"]} type="submit" value="Submit"></input>
+                    <input className={styles["register-form-input"]} type="submit" value="Submit" disabled={loading}></input>
                 </form>
             </div>
             <div className={styles["no-acc-box"]}>
