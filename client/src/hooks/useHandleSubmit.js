@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {editItem, getCertainCar, listItem } from '../api/carsService'
-import useErrorHandler from "./useErrorsHandler";
+import errorsHandler from "../utils/errorsHandler";
 
 export default function useHandleSubmit(value, itemID,changeValues, handler, dataSetter,isLoadingChanger){
         let [err, setErr] = useState([]);
@@ -9,7 +9,7 @@ export default function useHandleSubmit(value, itemID,changeValues, handler, dat
     
         let listSubmitHandler = async (e) => {
             e.preventDefault();
-            let {errors,items} = useErrorHandler(value)
+            let {errors,items} = errorsHandler(value)
             if (errors.length > 0){
                 setErr(errors);
                 return;
@@ -28,7 +28,7 @@ export default function useHandleSubmit(value, itemID,changeValues, handler, dat
         let ediSubmitHandler = async (e) => {
             e.preventDefault();
             console.log(value);
-            let {errors,items} = useErrorHandler(value)
+            let {errors,items} = errorsHandler(value)
             
             if (errors.length > 0){
                 setErr(errors);
