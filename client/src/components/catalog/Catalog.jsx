@@ -1,10 +1,10 @@
 import styles from './Catalog.module.css'
 import CatalogItem from './catalog-single-item/CatalogItem';
-import fetchCatalogData from './fetchCatalogData';
+import useFetchCatalogData from './useFetchCatalogData';
 
 export default function Catalog(){
 
-    let {loading,cars} = fetchCatalogData()
+    let {loading,cars} = useFetchCatalogData()
     
     return(
         loading == true

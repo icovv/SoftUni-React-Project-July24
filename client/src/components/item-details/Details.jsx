@@ -2,7 +2,7 @@ import { useContext,} from 'react'
 import styles from './Details.module.css'
 import {useParams, Link } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
-import fetchDetailsData from './fetchDetailsData';
+import useFetchDetailsData from './useFetchDetailsData';
 import handlers from './handlers';
 
 export default function Details() {
@@ -10,7 +10,7 @@ export default function Details() {
 
     let { id, isAuthenticated } = useContext(AuthContext);
 
-    let {item,likes,isOwner,hasLiked,loading, likeSetter, hasLikedSetter} = fetchDetailsData(id, itemID)
+    let {item,likes,isOwner,hasLiked,loading, likeSetter, hasLikedSetter} = useFetchDetailsData(id, itemID)
 
     let {deleteItem,likeItem,dislikeItem} = handlers(itemID,id,likeSetter,hasLikedSetter)
 

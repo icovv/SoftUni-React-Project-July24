@@ -1,6 +1,6 @@
 import styles from "./Search.module.css"
 import SearchItem from "./search-single-item/SearchItem";
-import fetchSearchData from "./fetchSearchData";
+import useFetchSearchData from "./useFetchSearchData";
 import useForm from "../../hooks/useForm";
 import useHandleSubmit from "../../hooks/useHandleSubmit";
 import handler from "./handler";
@@ -12,7 +12,7 @@ export default function Search() {
         dropdown: ``
     })
 
-    let { loading, data, dataSetter,dataReloader,isLoadingChanger } = fetchSearchData()
+    let { loading, data, dataSetter,dataReloader,isLoadingChanger } = useFetchSearchData()
 
     let { searchSubmitHandler,err,divKill, } = useHandleSubmit(value, null, changeValues, null, dataSetter);
 

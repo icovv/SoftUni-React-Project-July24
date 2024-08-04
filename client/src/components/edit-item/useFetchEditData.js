@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { getOneCar } from "../../api/carsService";
 import { useNavigate } from "react-router-dom";
 
-export default function fetchEditData(itemID, changeValues){
+export default function useFetchEditData(itemID, changeValues){
     let navigate = useNavigate();
     useEffect(() => {
         async function getItem(){

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllCreatedCarsByUser, getAllLikedCarsByUser } from "../../api/carsService";
 
-export default function fetchProfileData(id){
+export default function useFetchProfileData(id){
     let [cars,setCars] = useState({listed:[],liked:[]});
     let [loading, setIsLoading] = useState(true);
     useEffect(()=> {

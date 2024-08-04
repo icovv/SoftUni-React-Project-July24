@@ -3,13 +3,13 @@ import styles from './Profile.module.css'
 import AuthContext from '../../context/AuthContext'
 import ProfileListed from './profile-listed-products/ProfileListed';
 import ProfileLiked from './profile-liked-products/ProfileLiked';
-import fetchProfileData from './fetchProfileData';
+import useFetchProfileData from './useFetchProfileData';
 
 
 export default function Profile(){
     let {id, email} = useContext(AuthContext);
 
-    let {cars,loading} = fetchProfileData(id);
+    let {cars,loading} = useFetchProfileData(id);
     return(
         loading == true 
         ?

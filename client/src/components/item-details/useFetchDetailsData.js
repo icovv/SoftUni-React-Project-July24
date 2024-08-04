@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getCertainCarLikes, getOneCar, hasUserLiked } from "../../api/carsService";
 import { useNavigate } from "react-router-dom";
 
-export default function fetchDetailsData(id,itemID){
+export default function useFetchDetailsData(id,itemID){
     let navigate = useNavigate()
     let [item, setItem] = useState({});
     let [likes, setLikes] = useState({});

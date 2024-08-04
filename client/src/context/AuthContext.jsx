@@ -1,7 +1,6 @@
 import {createContext} from 'react'
-import { post } from '../api/requester';
 import { login, logout, register } from '../api/userService';
-import useLocalStorageState from '../hooks/setLocalStorageState';
+import useLocalStorageState from '../hooks/useLocalStorageState';
 
 let AuthContext = createContext();
 

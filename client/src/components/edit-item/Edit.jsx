@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import styles from './Edit.module.css'
-import fetchEditData from './fetchEditData';
+import useFetchEditData from './useFetchEditData';
 import useHandleSubmit from '../../hooks/useHandleSubmit';
 
 export default function List() {
@@ -17,7 +17,7 @@ export default function List() {
         image: '',
         description: '',
     })
-    fetchEditData(itemID, changeValues);
+    useFetchEditData(itemID, changeValues);
 
     let {err,ediSubmitHandler, divKill} = useHandleSubmit(value, itemID);
 
