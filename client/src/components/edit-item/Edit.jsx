@@ -19,13 +19,17 @@ export default function List() {
         image: '',
         description: '',
     })
-    let [loading, setIsLoading] = useState(false);
+    let [loading, setIsLoading] = useState(true);
     let loadingFN = (value) => {setIsLoading(value)}
-    useFetchEditData(itemID, changeValues);
+    useFetchEditData(itemID, changeValues,loadingFN);
 
     let {err,ediSubmitHandler, divKill} = useHandleSubmit(value, itemID,null,null,null,loadingFN);
 
     return (
+        loading == true
+        ?
+        <div className={styles["loader"]}></div>
+        :
         <main className={styles.main}>
              <div className={styles["error-container"]}>
                 {err.length > 0

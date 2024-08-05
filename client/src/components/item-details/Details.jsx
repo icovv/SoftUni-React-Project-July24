@@ -10,9 +10,9 @@ export default function Details() {
 
     let { id, isAuthenticated } = useContext(AuthContext);
 
-    let {item,likes,isOwner,hasLiked,loading, likeSetter, hasLikedSetter} = useFetchDetailsData(id, itemID)
+    let {item,likes,isOwner,hasLiked,loading, likeSetter, hasLikedSetter, btnStatus, changebtnStatus} = useFetchDetailsData(id, itemID)
 
-    let {deleteItem,likeItem,dislikeItem} = handlers(itemID,id,likeSetter,hasLikedSetter)
+    let {deleteItem,likeItem,dislikeItem} = handlers(itemID,id,likeSetter,hasLikedSetter,changebtnStatus)
     return (
         loading == true 
         ?
@@ -38,16 +38,16 @@ export default function Details() {
                             ?
                             <>
                                 <Link to={`/catalog/details/edit/${itemID}`} ><button className={styles["edit-btn"]}>Edit</button></Link>
-                                <button className={styles["delete-btn"]} onClick={deleteItem}>Delete</button>
+                                <button className={styles["delete-btn"]} onClick={deleteItem} disabled={btnStatus}>Delete</button>
                             </>
 
                             :
                         isAuthenticated 
                         ?
                         hasLiked ?
-                            <button className={styles["like-btn"]} onClick={dislikeItem}>Unlike</button>
+                            <button className={styles["like-btn"]} onClick={dislikeItem} disabled={btnStatus}>Unlike</button>
                             :
-                            <button className={styles["like-btn"]} onClick={likeItem}>Like</button>
+                            <button className={styles["like-btn"]} onClick={likeItem} disabled={btnStatus}>Like</button>
                             :
                             <></>
                         }

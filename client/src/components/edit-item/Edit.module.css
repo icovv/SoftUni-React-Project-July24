@@ -98,3 +98,14 @@ button:hover {
     flex-direction: column;
     gap: 0.5em;
   }
+
+  .loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid black; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-left: 77em;
+    margin-top: 20em;
+    animation: spin 2s linear infinite;
+  }

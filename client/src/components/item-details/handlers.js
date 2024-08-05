@@ -2,26 +2,51 @@ import { useNavigate } from "react-router-dom";
 import { addLikesToCar, deleteCar, removeLikeFromCar } from "../../api/carsService";
 
 
-export default function handlers(itemID,id,likeSetter,hasLikedSetter){
+export default function handlers(itemID, id, likeSetter, hasLikedSetter, changebtnStatus) {
     let navigate = useNavigate();
 
     let deleteItem = async () => {
         if (confirm('Are you sure you want to delete this car?')) {
-            await deleteCar(itemID);
-            navigate('/catalog')
+                changebtnStatus(true);
+            try {
+                await deleteCar(itemID);
+                changebtnStatus(false);
+                navigate('/catalog')
+            } catch (error) {
+                changebtnStatus(false);
+                console.error(error.message);
+                return;
+            }
+                changebtnStatus(false)
         };
-    }   
+    }
     let likeItem = async () => {
-            let data = await addLikesToCar(itemID,id)
+            changebtnStatus(true);
+        try {
+            let data = await addLikesToCar(itemID, id)
             likeSetter(data.likes);
             hasLikedSetter(true);
+        } catch (error) {
+            changebtnStatus(false);
+            console.error(error.message);
+            return;
+        }
+        changebtnStatus(false);
     }
     let dislikeItem = async () => {
-            let data = await removeLikeFromCar(itemID,id);
+            changebtnStatus(true);
+        try {
+            let data = await removeLikeFromCar(itemID, id);
             likeSetter(data.likes);
             hasLikedSetter(false);
+        } catch (error) {
+            changebtnStatus(false);
+            console.error(error.message);
+            return;
+        }
+        changebtnStatus(false);
     }
-    return{
+    return {
         deleteItem,
         likeItem,
         dislikeItem,

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { getOneCar } from "../../api/carsService";
 import { useNavigate } from "react-router-dom";
 
-export default function useFetchEditData(itemID, changeValues){
+export default function useFetchEditData(itemID, changeValues,loadingFN){
     let navigate = useNavigate();
     useEffect(() => {
         async function getItem(){
@@ -23,6 +23,7 @@ export default function useFetchEditData(itemID, changeValues){
                 image: data.imageURL,
                 description: data.description,
             });
+            loadingFN(false);
         }
         getItem();
     },[])

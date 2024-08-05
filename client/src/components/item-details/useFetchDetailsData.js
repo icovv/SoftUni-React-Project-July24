@@ -9,12 +9,16 @@ export default function useFetchDetailsData(id,itemID){
     let [isOwner, setisOwner] = useState(false);
     let [hasLiked, setHasLiked] = useState(``);
     let [loading,setIsLoading] = useState(true);
+    let [btnStatus,setBtnStatus] = useState(false);
 
     let likeSetter = (value) => {
         setLikes(value)
     }
     let hasLikedSetter = (value) => {
         setHasLiked(value)
+    }
+    let changebtnStatus = (value) => {
+        setBtnStatus(value)
     }
     useEffect(() => {
         async function getItem() {
@@ -42,6 +46,8 @@ export default function useFetchDetailsData(id,itemID){
         hasLiked,
         loading,
         likeSetter,
-        hasLikedSetter
+        hasLikedSetter,
+        changebtnStatus,
+        btnStatus
     }
 }
