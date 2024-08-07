@@ -1,5 +1,5 @@
 # SoftUni-React-Project-July24
-
+**Due to limitations, this SPA has been build desktop only. For best experience, please use 1920x1080 with 100% scaling**
 # Overview
 
 This is a front-end application (SPA) which was created as a Softuni ReactJS Course Final Project. The application structure consists of a Public and Private parts supported by Softuni`s practice server. The following pages have been created -> Home, Catalog, Details, Edit Item, List Item, Search, Profile, Contacts, Login, Register, Logout with different functionalities. More information can be read below.
